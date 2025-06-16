@@ -1,0 +1,234 @@
+:root[data-theme="light"] {
+  --background-primary: transparent;
+  --background-secondary: #f8f9fa;
+  --empowering-section-bg: #bbf8f795;  /* original color */
+  --job-requirements-bg: #fce4ec;  /* light pink background */
+  --job-requirements-card-bg: #fce4ec;  /* only this section should be rose pink */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-white: #212529;
+  --accent-color: #254FA3;
+  --border-color: #dee2e6;
+  --card-bg: rgba(22, 29, 41, 0.9);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --button-bg: #f8f9fa;
+  --button-text: #212529;
+  --heading-color: #1a1a1a;
+  --arrow-color: #212529;
+  --review-text: #333333;
+  --faq-text: #000000;
+  --footer-text: #000000;
+  --footer-bg: #79e5f16c;
+  --location-text: #ffffff;
+  --location-bg: #000814;
+  --benefits-bg: #ffffff;
+  --benefits-text: #000000;
+  --benefits-shadow: rgba(0, 0, 0, 0.1);
+  --submenu-bg: #ffffff;
+  --submenu-text: #000000;
+  --submenu-shadow: rgba(0, 0, 0, 0.1);
+  --container-shadow: rgba(0, 0, 0, 0.1);
+  --social-icon-bg: #6b7280;
+}
+
+:root[data-theme="dark"] {
+  --background-primary: #000814;
+  --background-secondary: #161d29;
+  --empowering-section-bg: #000814;  /* dark blue background for empowering section */
+  --job-requirements-bg: #161d29;  /* dark background */
+  --job-requirements-card-bg: #161d29;  /* dark background */
+  --text-primary: #f1f2ff;
+  --text-secondary: #afb2bf;
+  --text-white: #f1f2ff;
+  --accent-color: #254FA3;
+  --border-color: #2c333f;
+  --card-bg: transparent;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --navbar-bg: rgba(22, 29, 41, 0.95);
+  --button-bg: #2c333f;
+  --button-text: #f1f2ff;
+  --heading-color: #f1f2ff;
+  --arrow-color: #f1f2ff;
+  --review-text: #e6e6e6;
+  --faq-text: #ffffff;
+  --footer-text: #ffffff;
+  --footer-bg: #000814;
+  --location-text: #ffffff;
+  --location-bg: #161d29;
+  --benefits-bg: #161d29;
+  --benefits-text: #ffffff;
+  --benefits-shadow: rgba(0, 0, 0, 0.3);
+  --submenu-bg: #161d29;
+  --submenu-text: #ffffff;
+  --submenu-shadow: rgba(0, 0, 0, 0.3);
+  --container-shadow: rgba(0, 0, 0, 0.3);
+  --social-icon-bg: rgba(22, 29, 41, 0.9);
+  --card-bg: rgba(22, 29, 41, 0.9);
+}
+
+/* Theme Transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Base Theme Styles */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-text-white {
+  color: var(--text-white);
+}
+
+.theme-heading {
+  color: var(--heading-color);
+}
+
+.theme-bg-primary {
+  background-color: var(--background-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--background-secondary);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Override white text in light mode */
+.text-white {
+  color: var(--text-white) !important;
+}
+
+/* Theme-aware sections */
+.theme-empowering-section {
+  background-color: var(--empowering-section-bg) !important;
+}
+
+.theme-job-requirements-section {
+  background: linear-gradient(to right, var(--job-requirements-bg), var(--job-requirements-bg)) !important;
+}
+
+#job-requirements-bg {
+  background: linear-gradient(to right, var(--job-requirements-bg), var(--job-requirements-bg)) !important;
+}
+
+.theme-job-requirements-card {
+  background-color: var(--job-requirements-card-bg) !important;
+}
+
+/* Theme-aware arrows and icons */
+.theme-arrow {
+  color: var(--arrow-color) !important;
+}
+
+/* Review slider theme */
+.theme-review-text {
+  color: var(--review-text) !important;
+}
+
+/* FAQ text theme */
+.theme-faq-text {
+  color: var(--faq-text) !important;
+}
+
+/* Footer theme */
+.theme-footer-text {
+  color: var(--footer-text) !important;
+}
+
+.theme-footer-bg {
+  background-color: var(--footer-bg) !important;
+}
+
+/* Location container theme */
+.theme-location-text {
+  color: var(--location-text) !important;
+}
+
+.theme-location-bg {
+  background-color: var(--location-bg) !important;
+}
+
+/* Benefits container theme */
+.theme-benefits-bg {
+  background-color: var(--benefits-bg) !important;
+}
+
+.theme-benefits-text {
+  color: var(--benefits-text) !important;
+}
+
+.theme-benefits-shadow {
+  box-shadow: 0 4px 6px var(--benefits-shadow) !important;
+}
+
+/* Container shadow theme */
+.theme-container-shadow {
+  box-shadow: 0 4px 15px var(--container-shadow) !important;
+}
+
+/* Submenu theme */
+.theme-submenu-bg {
+  background-color: var(--submenu-bg) !important;
+}
+
+.theme-submenu-text {
+  color: var(--submenu-text) !important;
+}
+
+.theme-submenu-shadow {
+  box-shadow: 0 4px 6px var(--submenu-shadow) !important;
+}
+
+/* Global text color overrides for better theme support */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color) !important;
+}
+
+/* Ensure all white text elements are theme-aware */
+.text-richblack-5,
+.text-richblack-25,
+.text-richblack-50,
+.text-richblack-100,
+.text-richblack-200,
+.text-richblack-300,
+.text-richblack-400,
+.text-richblack-500,
+.text-richblack-600,
+.text-richblack-700,
+.text-richblack-800,
+.text-richblack-900 {
+  color: var(--text-primary) !important;
+}
+
+/* Arrow and navigation elements */
+.swiper-button-next,
+.swiper-button-prev,
+.carousel-arrow,
+.navigation-arrow {
+  color: var(--arrow-color) !important;
+}
+
+/* Review and testimonial text */
+.review-text,
+.testimonial-text,
+.student-review {
+  color: var(--review-text) !important;
+}

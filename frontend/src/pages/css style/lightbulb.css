@@ -1,0 +1,126 @@
+  .theme-btn {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+/* Dark mode styling */
+.theme-btn.dark {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 
+    0 2px 8px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode styling */
+.theme-btn.light {
+  background: linear-gradient(135deg, #e9eab0 0%, #46ec8b 100%);
+  box-shadow: 
+    0 2px 8px rgba(252, 182, 159, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.theme-icon {
+  font-size: 18px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.theme-btn.dark .theme-icon {
+  color: #e8eaff;
+  filter: drop-shadow(0 0 4px rgba(232, 234, 255, 0.5));
+}
+
+.theme-btn.light .theme-icon {
+  color: #e97b4b; 
+  filter: drop-shadow(0 0 4px rgba(226, 145, 74, 0.5));
+}
+
+/* Hover effects */
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+.theme-btn.dark:hover {
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.theme-btn.light:hover {
+  box-shadow: 
+    0 4px 12px rgba(252, 182, 159, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.theme-btn:hover .theme-icon {
+  transform: rotate(180deg);
+}
+
+/* Active/Click effects */
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+/* Pulse effect on click */
+.theme-btn:active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translate(-50%, -50%);
+  animation: pulse-click 0.4s ease-out;
+}
+
+@keyframes pulse-click {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .theme-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .theme-icon {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .theme-icon {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,19 @@
+.contactContainer {
+  background: transparent !important;
+  position: relative;
+}
+
+.contactContainer section {
+  position: relative;
+  z-index: 2;
+}
+
+.contactContainer > div:first-child {
+  z-index: 1;
+}
+
+/* Footer should have its original background */
+.contactContainer footer {
+  background: var(--footer-bg) !important;
+  z-index: 3;
+}

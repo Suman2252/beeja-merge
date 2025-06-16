@@ -1,0 +1,19 @@
+.aboutContainer {
+  background: transparent !important;
+  position: relative;
+}
+
+.aboutContainer section {
+  position: relative;
+  z-index: 2;
+}
+
+.aboutContainer > div:first-child {
+  z-index: 1;
+}
+
+/* Footer should have its original background */
+.aboutContainer footer {
+  background: var(--footer-bg) !important;
+  z-index: 3;
+}
