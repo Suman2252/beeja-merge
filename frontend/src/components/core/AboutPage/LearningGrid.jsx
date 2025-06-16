@@ -53,19 +53,33 @@ const LearningGrid = () => {
           <div
             key={i}
             className={`${i === 0 && "lg:col-span-2 lg:h-[294px]"}  ${card.order % 2 === 1
+<<<<<<< HEAD
                 ? "bg-richblack-700 h-[294px]"
                 : card.order % 2 === 0
                   ? "bg-richblack-800 h-[294px]"
+=======
+                ? " h-[294px]"
+                : card.order % 2 === 0
+                  ? " h-[294px]"
+>>>>>>> main
                   : "bg-transparent"
               } ${card.order === 3 && "lg:col-start-2"}  `}
           >
             {card.order < 0 ? (
               <div className="lg:w-[90%] flex flex-col gap-3 pb-10 lg:pb-0">
+<<<<<<< HEAD
                 <div className="text-4xl font-semibold ">
                   {card.heading}
                   <HighlightText text={card.highlightText} />
                 </div>
                 <p className="text-richblack-300 font-medium">
+=======
+                <div className="text-4xl font-semibold theme-text-primary">
+                  {card.heading}
+                  <HighlightText text={card.highlightText} />
+                </div>
+                <p className="font-medium theme-text-secondary">
+>>>>>>> main
                   {card.description}
                 </p>
 
@@ -77,9 +91,15 @@ const LearningGrid = () => {
               </div>
             ) : (
               <div className="p-8 flex flex-col gap-8">
+<<<<<<< HEAD
                 <h1 className="text-richblack-5 text-lg">{card.heading}</h1>
 
                 <p className="text-richblack-300 font-medium">
+=======
+                <h1 className="theme-text-primary text-lg">{card.heading}</h1>
+
+                <p className="theme-text-secondary font-medium">
+>>>>>>> main
                   {card.description}
                 </p>
               </div>
@@ -91,4 +111,8 @@ const LearningGrid = () => {
   );
 };
 
+<<<<<<< HEAD
 export default LearningGrid;
+=======
+export default LearningGrid;
+>>>>>>> main

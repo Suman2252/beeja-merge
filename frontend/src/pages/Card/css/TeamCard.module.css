@@ -1,15 +1,21 @@
+<<<<<<< HEAD
 /* 
 .teamCardContainer{
   width: 100%;
     border-bottom: #ff9900 1px solid;
 } */
+=======
+>>>>>>> main
 /* Section styles */
 .section {
   width: 90vw;
   margin: 2rem auto;
   max-width: 1170px;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
 }
 
 .title {
@@ -42,10 +48,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+<<<<<<< HEAD
 }
 
 .cardContainer h4{
     text-transform: capitalize;
+=======
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cardContainer h4 {
+  text-transform: capitalize;
+>>>>>>> main
   color: #ff9900;
   font-size: 25px;
   font-weight: bolder;
@@ -74,6 +89,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 .personTitle {
   text-transform: capitalize;
   margin-bottom: 0.75rem;
@@ -91,6 +107,8 @@
   font-weight: bolder;
 }
 
+=======
+>>>>>>> main
 .icon {
   font-size: 3rem;
   margin-top: 1rem;
@@ -103,8 +121,12 @@
   position: absolute;
   top: 200px;
   transform: translateY(-50%);
+<<<<<<< HEAD
   color: white;
   width: 3rem;        /* Bigger button */
+=======
+  width: 3rem;
+>>>>>>> main
   height: 3rem;
   display: grid;
   place-items: center;
@@ -115,13 +137,31 @@
   transition: all 0.3s ease;
 }
 
+<<<<<<< HEAD
+=======
+/* Light theme - black arrows */
+:global([data-theme="light"]) .prev,
+:global([data-theme="light"]) .next {
+  color: black;
+}
+
+/* Dark theme - white arrows */
+:global([data-theme="dark"]) .prev,
+:global([data-theme="dark"]) .next {
+  color: white;
+}
+
+>>>>>>> main
 /* Add this to increase icon size */
 .prev svg,
 .next svg {
   font-size: 2.5rem;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 .prev:hover,
 .next:hover {
   color: #ff9900;
@@ -136,14 +176,22 @@
 }
 
 @media (min-width: 800px) {
+<<<<<<< HEAD
   .text {
     max-width: 45em;
   }
   
+=======
+>>>>>>> main
   .prev,
   .next {
     width: 2rem;
     height: 2rem;
     font-size: 1.5rem;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> main

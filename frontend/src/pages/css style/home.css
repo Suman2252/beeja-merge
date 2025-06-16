@@ -1,7 +1,5 @@
 /* certification design */
 
-
-
 .certification-logo{
     display: flex;
     align-content: top;
@@ -20,8 +18,8 @@
     justify-items: center;
     padding: 0 10px;
     border-radius: 15px;
-    background-color: rgba(130, 130, 130, 0.375) ;
-
+    background-color: var(--card-bg);
+    color: var(--text-primary);
 }
 
 .c-logo{
@@ -42,25 +40,16 @@
     size: 10px;
 }
 
-/* .inner-certification{
-    display: flex;
-    justify-content: space-around;
-    gap: 45px;
-    flex-wrap: wrap;
-} */
-
-
-
-
 /* increment count */
 .parent-count-container{
     display: flex;
     gap: 90px;
     flex-wrap: wrap;
     justify-content: center;
-    color: white;
-
+    color: var(--text-primary);
+    margin: 2rem 0;
 }
+
 .count-container{
     display: flex;
     justify-content: center;
@@ -71,37 +60,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(130, 130, 130, 0.375) ;
+    background-color: var(--background-primary);
     flex-direction: column;
     width: 130px;
     height: 130px;
     border-radius: 5px;
-    border-bottom: 5px solid #254FA3;
-
+    border-bottom: 5px solid var(--accent-color);
     min-width: 130px; /* Ensure minimum width */
     padding: 0 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.increase-count:hover {
+    transform: translateY(-5px);
 }
 
 .increase-count i{
     font-size: 25px;
+    color: var(--text-primary);
 }
 
 .num {
   display: flex;
   justify-content: center;
   width: 100%;
+  color: var(--text-primary);
 }
 
 .increase-count .count-num {
   font-size: 27px;
   font-weight: 600;
   white-space: nowrap; /* Prevent line breaks */
+  color: var(--text-primary);
 }
 
 .increase-count .text{
     font-size: 15px;
+    color: var(--text-primary);
 }
-
 
 .certification-logo-container:hover{
     transform: scale(1.1) translate(0px, -9px);
@@ -110,3 +107,49 @@
     background-color: rgba(101, 101, 101, 0.375);
 }
 
+.sun-corner-canvas {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;   /* Roughly size of a penny */
+    height: 40px;
+    z-index: 50;   /* Make sure it floats above backgrounds */
+    pointer-events: none; /* So it doesn't block clicks */
+}
+
+/* Skills section theming */
+.skills-section {
+    background-color: var(--background-primary);
+}
+
+/* Override background in light theme */
+:root[data-theme="light"] .skills-section {
+    background-color: #FFE4E6; /* Rose pink color */
+}
+
+/* Override text color in dark theme for skills section and timeline */
+:root[data-theme="dark"] .skills-section .theme-text-primary {
+    color: #000000 !important; /* Black text in dark mode */
+}
+
+:root[data-theme="dark"] .skills-section .theme-text-secondary {
+    color: #333333 !important; /* Dark gray text in dark mode */
+}
+
+/* Override text color for TeamCard */
+:root[data-theme="light"] .theme-text-primary {
+    color: #000000 !important; /* Black text in light mode */
+}
+
+:root[data-theme="dark"] .theme-text-primary {
+    color: #ffffff !important; /* White text in dark mode */
+}
+
+/* Learn more button styling in light theme */
+:root[data-theme="light"] .skills-section .learn-more-btn {
+    transition: filter 0.3s ease;
+}
+
+:root[data-theme="light"] .skills-section .learn-more-btn:hover {
+    filter: none;
+}

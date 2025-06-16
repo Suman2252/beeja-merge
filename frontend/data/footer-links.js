@@ -87,4 +87,8 @@ export const FooterLink2 = [
       { title: "Careers", link: "/privacy-careers" },
     ],
   },
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> main

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "../../context/ThemeContext";
 import { FooterLink2 } from "../../../data/footer-links";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -42,9 +43,10 @@ const contactInfo = [
 ];
 
 const ImprovedFooter = () => {
+  const { isDarkMode } = useTheme();
 
   return (
-    <footer className={`${styles.footerContainer} relative bg-gradient-to-br from-richblack-900 via-richblack-800 to-richblack-900 mx-4 sm:mx-6 lg:mx-7 rounded-3xl mb-6 lg:mb-10 overflow-hidden`}>
+    <footer className={`${styles.footerContainer} relative theme-footer-bg mx-4 sm:mx-6 lg:mx-7 rounded-3xl mb-6 lg:mb-10 overflow-hidden`}>
       {/* Background Pattern */}
       <div className={styles.backgroundPattern}>
         <div className={`${styles.floatingElement} ${styles.animateDelay1}`}></div>
@@ -57,7 +59,7 @@ const ImprovedFooter = () => {
         <div className="w-11/12 max-w-maxContent mx-auto pt-12 pb-8">
           
           {/* Top Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-8 border-b border-richblack-700">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pb-8 border-b theme-border">
             
             {/* Brand Section */}
             <motion.div 
@@ -69,24 +71,24 @@ const ImprovedFooter = () => {
             >
               <div className="space-y-4">
                 <img 
-                  src={StudyNotionLogo} 
+                  src={StudyNotionLogo}
                   alt="Beeja Logo" 
                   className="h-8 sm:h-10 object-contain" 
                 />
-                <p className="text-richblack-300 text-sm sm:text-base leading-relaxed max-w-md">
+                <p className="theme-footer-text text-sm sm:text-base leading-relaxed max-w-md">
                   Elevate your knowledge journey with Beeja. Learn, grow, and transform your future with our cutting-edge educational platform.
                 </p>
               </div>
 
               {/* Contact Info */}
               <div className="space-y-3">
-                <h3 className="text-richblack-50 font-semibold text-lg">Get in Touch</h3>
+                <h3 className="theme-footer-text font-semibold text-lg">Get in Touch</h3>
                 <div className="space-y-2">
                   {contactInfo.map((contact, index) => (
                     <a
                       key={index}
                       href={contact.href}
-                  className={`${styles.footerLink} flex items-center gap-3 text-richblack-400 hover:text-yellow-50 transition-colors duration-300 text-sm group`}
+                      className={`${styles.footerLink} flex items-center gap-3 theme-footer-text hover:text-yellow-50 transition-colors duration-300 text-sm group`}
                     >
                       <contact.icon className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                       <span>{contact.text}</span>
@@ -97,7 +99,7 @@ const ImprovedFooter = () => {
 
               {/* Social Media */}
               <div className="space-y-3">
-                <h3 className="text-richblack-50 font-semibold text-lg">Follow Us</h3>
+                <h3 className="theme-footer-text font-semibold text-lg">Follow Us</h3>
                 <div className="flex gap-3 flex-wrap">
                   {socialLinks.map((social, index) => (
                     <motion.a
@@ -107,10 +109,11 @@ const ImprovedFooter = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.15, y: -3 }}
                       whileTap={{ scale: 0.9 }}
-                                            className={`${styles.socialIcon} p-3 bg-richblack-700 hover:bg-richblack-600 rounded-full text-richblack-300 ${social.color} transition-all duration-75 group cursor-pointer shadow-md hover:shadow-lg`}
+                      className={`${styles.socialIcon} p-3 rounded-full theme-footer-text ${social.color} transition-all duration-300 group cursor-pointer shadow-md hover:shadow-lg`}
+                      style={{ backgroundColor: 'var(--social-icon-bg)' }}
                       title={`Follow us on ${social.name}`}
                     >
-                      <social.icon className="w-5 h-5 transition-transform duration-75 group-hover:rotate-12" />
+                      <social.icon className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" />
                     </motion.a>
                   ))}
                 </div>
@@ -128,7 +131,7 @@ const ImprovedFooter = () => {
                   viewport={{ once: false, amount: 0.1 }}
                   className="space-y-4"
                 >
-                  <h3 className="text-richblack-50 font-semibold text-lg border-b border-richblack-700 pb-2">
+                  <h3 className="theme-footer-text font-semibold text-lg border-b theme-border pb-2">
                     {section.title}
                   </h3>
                   <div className="space-y-3">
@@ -136,9 +139,9 @@ const ImprovedFooter = () => {
                       <Link
                         key={index}
                         to={link.link}
-                        className="block text-richblack-400 hover:text-yellow-50 transition-all text-sm hover:translate-x-1 group"
+                        className="block theme-footer-text hover:text-yellow-50 transition-all duration-300 text-sm hover:translate-x-1 group"
                       >
-                        <span className="border-b border-transparent group-hover:border-yellow-50 transition-all">
+                        <span className="border-b border-transparent group-hover:border-yellow-50 transition-all duration-300">
                           {link.title}
                         </span>
                       </Link>
@@ -155,14 +158,14 @@ const ImprovedFooter = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className="py-8 border-b border-richblack-700"
+            className="py-8 border-b theme-border"
           >
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               <div className="text-center lg:text-left">
-                <h3 className="text-richblack-50 font-semibold text-xl mb-2">
+                <h3 className="theme-footer-text font-semibold text-xl mb-2">
                   Stay Updated
                 </h3>
-                <p className="text-richblack-400 text-sm">
+                <p className="theme-footer-text text-sm">
                   Subscribe to our newsletter for the latest courses and updates
                 </p>
               </div>
@@ -170,7 +173,7 @@ const ImprovedFooter = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="px-4 py-3 bg-richblack-700 border border-richblack-600 rounded-lg text-richblack-50 placeholder-richblack-400 focus:outline-none focus:border-yellow-50 transition-colors duration-300 flex-1 lg:w-64"
+                  className="px-4 py-3 theme-bg-secondary theme-border border rounded-lg theme-text-primary placeholder-gray-400 focus:outline-none focus:border-yellow-50 transition-colors duration-300 flex-1 lg:w-64"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -196,18 +199,18 @@ const ImprovedFooter = () => {
                 <React.Fragment key={index}>
                   <Link
                     to={item.split(" ").join("-").toLowerCase()}
-                    className={`${styles.footerLink} px-3 py-1 text-richblack-400 hover:text-richblack-50 transition-colors duration-300`}
+                    className={`${styles.footerLink} px-3 py-1 theme-footer-text hover:text-yellow-50 transition-colors duration-300`}
                   >
                     {item}
                   </Link>
                   {index < BottomFooter.length - 1 && (
-                    <span className="text-richblack-600">|</span>
+                    <span className="theme-text-secondary">|</span>
                   )}
                 </React.Fragment>
               ))}
             </div>
 
-            <div className={`${styles.copyrightInfo} flex items-center gap-4 text-sm text-richblack-400`}>
+            <div className={`${styles.copyrightInfo} flex items-center gap-4 text-sm theme-footer-text`}>
               <span className="flex items-center gap-1">
                 Made with <FiHeart className="text-red-500 w-4 h-4" /> by Beeja Team
               </span>

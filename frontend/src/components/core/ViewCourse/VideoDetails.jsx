@@ -192,14 +192,22 @@ const VideoDetails = () => {
               {!completedLectures.includes(subSectionId) && (
                 <IconBtn
                   disabled={loading}
+<<<<<<< HEAD
                   onClick={() => handleLectureCompletion()}
+=======
+                  onclick={() => handleLectureCompletion()}
+>>>>>>> main
                   text={!loading ? "Mark As Completed" : "Loading..."}
                   customClasses="text-xl max-w-max px-4 mx-auto"
                 />
               )}
               <IconBtn
                 disabled={loading}
+<<<<<<< HEAD
                 onClick={() => {
+=======
+                onclick={() => {
+>>>>>>> main
                   if (playerRef?.current) {
                     // set the current time of the video to 0
                     playerRef?.current?.seek(0)

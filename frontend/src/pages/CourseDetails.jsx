@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react"
 import { BiInfoCircle } from "react-icons/bi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
@@ -24,9 +23,6 @@ import { MdOutlineVerified } from 'react-icons/md'
 import Img from './../components/common/Img';
 import toast from "react-hot-toast"
 
-
-
-
 function CourseDetails() {
   const { user } = useSelector((state) => state.profile)
   const { token } = useSelector((state) => state.auth)
@@ -34,7 +30,6 @@ function CourseDetails() {
   const { paymentLoading } = useSelector((state) => state.course)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
 
   // Getting courseId from url parameter
   const { courseId } = useParams()
@@ -95,7 +90,6 @@ function CourseDetails() {
     window.scrollTo(0, 0);
   }, [])
 
-
   // Loading skeleton
   if (paymentLoading || loading || !response) {
     return (
@@ -118,7 +112,6 @@ function CourseDetails() {
       </div>
     )
   }
-
 
   // extract course data
   const {
@@ -172,8 +165,6 @@ function CourseDetails() {
       btn2Handler: () => setConfirmationModal(null),
     })
   }
-
-
 
   return (
     <>

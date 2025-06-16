@@ -32,7 +32,11 @@ const BenefitsForEmployers = () => {
   return (
     <div className='relative w-11/12 max-w-maxContent mx-auto py-20'>
       {/* Gradient Background */}
+<<<<<<< HEAD
       <div className="absolute inset-0 bg-gradient-to-b from-richblack-900 to-richblack-900 opacity-90"></div>
+=======
+      <div className="absolute inset-0 theme-benefits-bg opacity-90 rounded-2xl theme-benefits-shadow"></div>
+>>>>>>> main
       
       {/* Content Container */}
       <div className='relative z-10'>
@@ -50,7 +54,11 @@ const BenefitsForEmployers = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+<<<<<<< HEAD
             className='text-richblack-300 text-lg max-w-2xl mx-auto'
+=======
+            className='theme-text-secondary text-lg max-w-2xl mx-auto'
+>>>>>>> main
           >
             Partner with us to access top talent and transform your workforce
           </motion.p>
@@ -72,7 +80,11 @@ const BenefitsForEmployers = () => {
               className='relative'
             >
               {/* Card Container */}
+<<<<<<< HEAD
               <div className='bg-richblack-800 rounded-2xl p-6 h-full border border-richblack-700 hover:border-[#833AB4] transition-all duration-300'>
+=======
+              <div className='theme-bg-secondary rounded-2xl p-6 h-full theme-border border hover:border-[#833AB4] transition-all duration-300 theme-container-shadow'>
+>>>>>>> main
                 {/* Number Badge */}
                 <div className='absolute -top-4 left-6 bg-gradient-to-r from-[#833AB4] to-[#FD1D1D] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg'>
                   {benefit.id}
@@ -82,17 +94,28 @@ const BenefitsForEmployers = () => {
                 <div className='text-4xl mb-4 mt-2'>{benefit.icon}</div>
 
                 {/* Content */}
+<<<<<<< HEAD
                 <h3 className='text-xl font-semibold text-white mb-2'>
                   {benefit.title}
                 </h3>
                 <p className='text-richblack-300 text-sm'>
+=======
+                <h3 className='text-xl font-semibold theme-benefits-text mb-2'>
+                  {benefit.title}
+                </h3>
+                <p className='theme-text-secondary text-sm'>
+>>>>>>> main
                   {benefit.description}
                 </p>
               </div>
 
               {/* Connecting Line for larger screens */}
               {index < benefits.length - 1 && (
+<<<<<<< HEAD
                 <div className='hidden lg:block absolute top-1/2 right-[-2rem] w-16 border-t border-dashed border-richblack-500 transform -translate-y-1/2'></div>
+=======
+                <div className='hidden lg:block absolute top-1/2 right-[-2rem] w-16 border-t border-dashed theme-border transform -translate-y-1/2'></div>
+>>>>>>> main
               )}
             </motion.div>
           ))}

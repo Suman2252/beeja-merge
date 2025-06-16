@@ -146,7 +146,11 @@ export default function CourseBuilderForm() {
         </button>
 
         {/* Next button */}
+<<<<<<< HEAD
         <IconBtn disabled={loading} text="Next" onClick={goToNext}>
+=======
+        <IconBtn disabled={loading} text="Next" onclick={goToNext}>
+>>>>>>> main
           <MdNavigateNext />
         </IconBtn>
       </div>

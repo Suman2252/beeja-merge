@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const formatDate = (dateString) => {
   const date = new Date(dateString)
   return date.toLocaleDateString('en-US', {
@@ -38,3 +39,12 @@ export const getRelativeTime = (dateString) => {
     return formatDateShort(dateString)
   }
 }
+=======
+export const formattedDate = (date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  })
+}
+>>>>>>> main

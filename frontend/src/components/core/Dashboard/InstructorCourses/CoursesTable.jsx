@@ -1,13 +1,26 @@
 
 import { useDispatch, useSelector } from "react-redux"
+<<<<<<< HEAD
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
 import { useState } from "react"
 import { FaCheck, FaStar } from "react-icons/fa"
+=======
+
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
+
+import { useState } from "react"
+import { FaCheck } from "react-icons/fa"
+>>>>>>> main
 import { FiEdit2 } from "react-icons/fi"
 import { HiClock } from "react-icons/hi"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import { formatDate } from "../../../../services/formatDate"
 import { deleteCourse, fetchInstructorCourses, } from "../../../../services/operations/courseDetailsAPI"
 import { COURSE_STATUS } from "../../../../utils/constants"
@@ -78,9 +91,12 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
               Price
             </Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+<<<<<<< HEAD
               Rating
             </Th>
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+=======
+>>>>>>> main
               Actions
             </Th>
           </Tr>
@@ -157,6 +173,7 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
 
                   {/* course duration */}
                   <Td className="text-sm font-medium text-richblack-100">2hr 30min</Td>
+<<<<<<< HEAD
                   <Td className="text-sm font-medium text-richblack-100">
                     {course.courseType === 'Free' ? 'Free' : `₹${course.price}`}
                   </Td>
@@ -172,6 +189,9 @@ export default function CoursesTable({ courses, setCourses, loading, setLoading 
                       </span>
                     </div>
                   </Td>
+=======
+                  <Td className="text-sm font-medium text-richblack-100">₹{course.price}</Td>
+>>>>>>> main
 
                   <Td className="text-sm font-medium text-richblack-100 ">
                     {/* Edit button */}

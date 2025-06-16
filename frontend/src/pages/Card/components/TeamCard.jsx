@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // components/TeamCard.js
 // import React, { Fragment, useEffect, useState } from "react";
 // import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
@@ -94,6 +95,8 @@
 
 
 
+=======
+>>>>>>> main
 import React, { Fragment, useEffect, useState } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { FaQuoteRight } from "react-icons/fa";
@@ -142,7 +145,11 @@ const TeamCard = () => {
 
             return (
               <article
+<<<<<<< HEAD
                 className={`${styles.cardContainer} ${
+=======
+                className={`${styles.cardContainer} theme-card ${
+>>>>>>> main
                   position === "activeSlide" ? styles.activeSlide :
                   position === "lastSlide" ? styles.lastSlide :
                   styles.nextSlide
@@ -150,9 +157,15 @@ const TeamCard = () => {
                 key={id}
               >
                 <img src={image} alt={name} className={styles.personImg} />
+<<<<<<< HEAD
                 <h4>{name}</h4>
                 <p className={styles.personTitle}>{title}</p>
                 <p className={styles.text}>{quote}</p>
+=======
+                <h4 className={styles.cardContainer + " h4"}>{name}</h4>
+                <p className="capitalize mb-3 theme-text-primary font-bold text-sm">{title}</p>
+                <p className="max-w-[35em] mx-auto mt-8 leading-8 theme-text-primary font-bold">{quote}</p>
+>>>>>>> main
                 <FaQuoteRight className={styles.icon} />
               </article>
             );
@@ -169,4 +182,8 @@ const TeamCard = () => {
   );
 };
 
+<<<<<<< HEAD
 export default TeamCard;
+=======
+export default TeamCard;
+>>>>>>> main

@@ -1,0 +1,243 @@
+/* Light Theme */
+:root[data-theme="light"] {
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --empowering-section-bg: #bbf8f795;
+  --job-requirements-bg: #fce4ec;
+  --job-requirements-card-bg: #fce4ec;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-white: #212529;
+  --accent-color: #254FA3;
+  --border-color: #dee2e6;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --button-bg: #f8f9fa;
+  --button-text: #212529;
+  --heading-color: #1a1a1a;
+  --arrow-color: #212529;
+  --review-text: #333333;
+  --faq-text: #000000;
+  --footer-text: #000000;
+  --footer-bg: #79e5f16c;
+  --location-text: #000000;
+  --location-bg: #f8f9fa;
+  --benefits-bg: #ffffff;
+  --benefits-text: #000000;
+  --benefits-shadow: rgba(0, 0, 0, 0.1);
+  --submenu-bg: #ffffff;
+  --submenu-text: #000000;
+  --submenu-shadow: rgba(0, 0, 0, 0.1);
+  --container-shadow: rgba(0, 0, 0, 0.1);
+  --social-icon-bg: #6b7280;
+  --highlight-color: #FFD60A;
+  --button-primary-bg: #FFD60A;
+  --button-primary-text: #000000;
+  --button-secondary-bg: #2c333f;
+  --button-secondary-text: #ffffff;
+}
+
+/* Dark Theme */
+:root[data-theme="dark"] {
+  --background-primary: #000814;
+  --background-secondary: #161d29;
+  --empowering-section-bg: #000814;
+  --job-requirements-bg: #161d29;
+  --job-requirements-card-bg: #161d29;
+  --text-primary: #f1f2ff;
+  --text-secondary: #afb2bf;
+  --text-white: #f1f2ff;
+  --accent-color: #254FA3;
+  --border-color: #2c333f;
+  --card-bg: rgba(22, 29, 41, 0.9);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --navbar-bg: rgba(22, 29, 41, 0.95);
+  --button-bg: #2c333f;
+  --button-text: #f1f2ff;
+  --heading-color: #f1f2ff;
+  --arrow-color: #f1f2ff;
+  --review-text: #e6e6e6;
+  --faq-text: #ffffff;
+  --footer-text: #ffffff;
+  --footer-bg: #000814;
+  --location-text: #ffffff;
+  --location-bg: #161d29;
+  --benefits-bg: #161d29;
+  --benefits-text: #ffffff;
+  --benefits-shadow: rgba(0, 0, 0, 0.3);
+  --submenu-bg: #161d29;
+  --submenu-text: #ffffff;
+  --submenu-shadow: rgba(0, 0, 0, 0.3);
+  --container-shadow: rgba(0, 0, 0, 0.3);
+  --social-icon-bg: rgba(22, 29, 41, 0.9);
+  --highlight-color: #FFD60A;
+  --button-primary-bg: #FFD60A;
+  --button-primary-text: #000000;
+  --button-secondary-bg: #2c333f;
+  --button-secondary-text: #ffffff;
+}
+
+/* Theme Transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Base Theme Styles */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+/* Theme Classes */
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-text-white {
+  color: var(--text-white);
+}
+
+.theme-heading {
+  color: var(--heading-color);
+}
+
+.theme-bg-primary {
+  background-color: var(--background-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--background-secondary);
+}
+
+.theme-border {
+  border-color: var(--border-color);
+}
+
+.theme-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+/* Button Styles */
+.theme-button-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.theme-button-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+/* Section Specific Themes */
+.theme-empowering-section {
+  background-color: var(--empowering-section-bg);
+}
+
+.theme-job-requirements-section {
+  background: var(--job-requirements-bg);
+}
+
+.theme-job-requirements-card {
+  background-color: var(--job-requirements-card-bg);
+}
+
+/* Component Specific Themes */
+.theme-arrow {
+  color: var(--arrow-color);
+}
+
+.theme-review-text {
+  color: var(--review-text);
+}
+
+.theme-faq-text {
+  color: var(--faq-text);
+}
+
+.theme-footer-text {
+  color: var(--footer-text);
+}
+
+.theme-footer-bg {
+  background-color: var(--footer-bg);
+}
+
+.theme-location-text {
+  color: var(--location-text);
+}
+
+.theme-location-bg {
+  background-color: var(--location-bg);
+}
+
+.theme-benefits-bg {
+  background-color: var(--benefits-bg);
+}
+
+.theme-benefits-text {
+  color: var(--benefits-text);
+}
+
+.theme-benefits-shadow {
+  box-shadow: 0 4px 6px var(--benefits-shadow);
+}
+
+.theme-container-shadow {
+  box-shadow: 0 4px 15px var(--container-shadow);
+}
+
+/* Submenu Styles */
+.theme-submenu-bg {
+  background-color: var(--submenu-bg);
+}
+
+.theme-submenu-text {
+  color: var(--submenu-text);
+}
+
+.theme-submenu-shadow {
+  box-shadow: 0 4px 6px var(--submenu-shadow);
+}
+
+/* Highlight Text */
+.highlight-text {
+  color: var(--highlight-color);
+}
+
+/* Navbar Specific */
+.theme-navbar {
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Auth Button Styles */
+.auth-button-login {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--border-color);
+}
+
+.auth-button-signup {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  background-color: var(--background-primary);
+}
+
+.mobile-menu-item {
+  color: var(--text-primary);
+}
+
+.mobile-menu-item:hover {
+  background-color: var(--background-secondary);
+}

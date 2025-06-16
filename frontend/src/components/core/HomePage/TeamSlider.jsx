@@ -145,7 +145,11 @@ const TeamSlider = () => {
                 type: "spring",
                 stiffness: 100
               }}
+<<<<<<< HEAD
               className={`${styles.teamCard} bg-richblack-800 rounded-xl p-4 sm:p-6 flex flex-col items-center border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-50/10`}
+=======
+              className={`${styles.teamCard} theme-card rounded-xl p-4 sm:p-6 flex flex-col items-center border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-50/10`}
+>>>>>>> main
               style={{
                 flex: cardsToShow === 1 ? '0 0 85%' : cardsToShow === 2 ? '0 0 calc(50% - 12px)' : '0 0 calc(33.333% - 16px)'
               }}
@@ -158,9 +162,15 @@ const TeamSlider = () => {
                   loading="lazy"
                 />
               </div>
+<<<<<<< HEAD
               <h3 className="text-base sm:text-lg md:text-xl font-semibold text-yellow-50 mb-1 sm:mb-2 text-center">{member.name}</h3>
               <p className="text-xs sm:text-sm text-richblack-300 mb-2 sm:mb-4 text-center font-medium">{member.title}</p>
               <p className="text-richblack-100 text-center text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">{member.description}</p>
+=======
+              <h3 className="text-base sm:text-lg md:text-xl font-semibold theme-footer-text mb-1 sm:mb-2 text-center">{member.name}</h3>
+              <p className="text-xs sm:text-sm theme-footer-text mb-2 sm:mb-4 text-center font-medium">{member.title}</p>
+              <p className="theme-footer-text text-center text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">{member.description}</p>
+>>>>>>> main
             </motion.div>
           ))}
         </div>
@@ -168,14 +178,22 @@ const TeamSlider = () => {
         {/* Navigation Buttons */}
         <button
           onClick={handlePrev}
+<<<<<<< HEAD
           className={`${styles.navButton} absolute left-0 top-1/2 -translate-y-1/2 bg-richblack-900 p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
+=======
+          className={`${styles.navButton} absolute left-0 top-1/2 -translate-y-1/2 theme-card p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
+>>>>>>> main
           aria-label="Previous slide"
         >
           <FiChevronLeft size={20} className="md:text-2xl" />
         </button>
         <button
           onClick={handleNext}
+<<<<<<< HEAD
           className={`${styles.navButton} absolute right-0 top-1/2 -translate-y-1/2 bg-richblack-900 p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
+=======
+          className={`${styles.navButton} absolute right-0 top-1/2 -translate-y-1/2 theme-card p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
+>>>>>>> main
           aria-label="Next slide"
         >
           <FiChevronRight size={20} className="md:text-2xl" />

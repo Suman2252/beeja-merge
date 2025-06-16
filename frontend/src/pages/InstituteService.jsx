@@ -45,9 +45,15 @@ const InstituteService = () => {
   ];
 
   return (
+<<<<<<< HEAD
     <div className="bg-richblack-900 min-h-screen">
       {/* Hero Section */}
       <section className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white py-20">
+=======
+    <div className="theme-bg-primary min-h-screen">
+      {/* Hero Section */}
+      <section className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 theme-text-primary py-20">
+>>>>>>> main
         <div className="flex flex-col lg:flex-row gap-10 items-center">
           <motion.div 
             variants={fadeIn('right', 0.2)}
@@ -56,10 +62,17 @@ const InstituteService = () => {
             viewport={{ once: false, amount: 0.2 }}
             className="lg:w-[50%]"
           >
+<<<<<<< HEAD
             <h1 className="text-4xl lg:text-5xl font-semibold mb-6">
               Beeja Academy for <HighlightText text="Employers" />
             </h1>
             <p className="text-richblack-300 text-lg mb-8 leading-relaxed">
+=======
+            <h1 className="text-4xl lg:text-5xl font-semibold mb-6 theme-heading">
+              Beeja Academy for <HighlightText text="Employers" />
+            </h1>
+            <p className="theme-text-secondary text-lg mb-8 leading-relaxed">
+>>>>>>> main
               By partnering with Beeja Academy, employers get well-trained and highly skilled human resources who are well acquainted with the industry demands and can easily adapt to the work culture. Beeja Academy is a bridge between job seekers and employers which gives everyone an equal opportunity to grow together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -83,11 +96,19 @@ const InstituteService = () => {
             className="lg:w-[50%] relative"
           >
             <div className="bg-gradient-to-tr from-[#B55DFE] to-[#216AFD] absolute top-4 left-4 w-full h-full blur-2xl opacity-20 rounded-xl"></div>
+<<<<<<< HEAD
             <div className="bg-richblack-800 rounded-xl p-8 relative z-10 border border-richblack-700">
               <div className="flex items-center justify-center h-64 bg-gradient-to-br from-richblack-700 to-richblack-600 rounded-lg">
                 <div className="text-center">
                   <FaUsers className="text-6xl text-yellow-50 mx-auto mb-4" />
                   <p className="text-richblack-200">Professional Team Collaboration</p>
+=======
+            <div className="theme-bg-secondary rounded-xl p-8 relative z-10 theme-border border">
+              <div className="flex items-center justify-center h-64 bg-gradient-to-br from-richblack-700 to-richblack-600 rounded-lg">
+                <div className="text-center">
+                  <FaUsers className="text-6xl text-yellow-50 mx-auto mb-4" />
+                  <p className="theme-text-secondary">Professional Team Collaboration</p>
+>>>>>>> main
                 </div>
               </div>
             </div>
@@ -104,10 +125,17 @@ const InstituteService = () => {
           viewport={{ once: false, amount: 0.2 }}
           className="text-center mb-16"
         >
+<<<<<<< HEAD
           <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
             Our <HighlightText text="Services" />
           </h2>
           <p className="text-richblack-300 text-lg">
+=======
+          <h2 className="text-3xl lg:text-4xl font-semibold theme-heading mb-4">
+            Our <HighlightText text="Services" />
+          </h2>
+          <p className="theme-text-secondary text-lg">
+>>>>>>> main
             Comprehensive solutions for your talent acquisition needs
           </p>
         </motion.div>
@@ -121,29 +149,50 @@ const InstituteService = () => {
               whileInView={'show'}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ delay: index * 0.1 }}
+<<<<<<< HEAD
               className="bg-richblack-800 p-6 rounded-xl border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:scale-105"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-white font-semibold text-lg mb-3">{service.title}</h3>
               <p className="text-richblack-300 text-sm">{service.description}</p>
+=======
+              className="theme-bg-secondary p-6 rounded-xl theme-border border hover:border-yellow-50 transition-all duration-300 hover:scale-105"
+            >
+              <div className="mb-4">{service.icon}</div>
+              <h3 className="theme-text-primary font-semibold text-lg mb-3">{service.title}</h3>
+              <p className="theme-text-secondary text-sm">{service.description}</p>
+>>>>>>> main
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Job Requirements Section */}
+<<<<<<< HEAD
       <section className="w-full bg-gradient-to-r from-[#2C333F] to-[#161D29] py-20">
+=======
+      <section id="job-requirements-bg" className="w-full theme-job-requirements-section py-20">
+>>>>>>> main
         <motion.div 
           variants={fadeIn('up', 0.2)}
           initial='hidden'
           whileInView={'show'}
           viewport={{ once: false, amount: 0.2 }}
+<<<<<<< HEAD
           className="mx-auto w-11/12 max-w-maxContent text-center"
         >
           <h2 className="text-4xl lg:text-5xl font-semibold text-white mb-8">
             Got Specific Job Requirements?
           </h2>
           <p className="text-richblack-100 text-lg mb-10 lg:w-[70%] mx-auto leading-relaxed">
+=======
+          className="mx-auto w-11/12 max-w-maxContent text-center theme-job-requirements-card p-8 rounded-2xl"
+        >
+          <h2 className="text-4xl lg:text-5xl font-semibold theme-heading mb-8">
+            Got Specific Job Requirements?
+          </h2>
+          <p className="theme-text-primary text-lg mb-10 lg:w-[70%] mx-auto leading-relaxed">
+>>>>>>> main
             We provide customized training that are tailor made to your organization's specific needs. We'll work with you to understand your objectives to develop a customized solution for improving performance and productivity, and help you identify the right talent.
           </p>
           <Link to="/contact">
@@ -168,24 +217,43 @@ const InstituteService = () => {
             viewport={{ once: false, amount: 0.2 }}
             className="lg:w-[60%]"
           >
+<<<<<<< HEAD
             <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-6">
               What do Employers Get from <HighlightText text="Beeja Academy?" />
             </h2>
             <p className="text-richblack-100 mb-8 text-lg">
+=======
+            <h2 className="text-3xl lg:text-4xl font-semibold theme-heading mb-6">
+              What do Employers Get from <HighlightText text="Beeja Academy?" />
+            </h2>
+            <p className="theme-text-primary mb-8 text-lg">
+>>>>>>> main
               Beeja Academy's ProMent program transforms candidates to industry ready professionals
             </p>
             
             <div className="space-y-6 mb-8">
+<<<<<<< HEAD
               <div className="flex items-start gap-4 p-4 bg-richblack-800 rounded-lg border-l-4 border-yellow-50">
                 <div className="w-3 h-3 bg-yellow-50 rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-richblack-100 leading-relaxed">
+=======
+              <div className="flex items-start gap-4 p-4 theme-bg-secondary rounded-lg border-l-4 border-yellow-50">
+                <div className="w-3 h-3 bg-yellow-50 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="theme-text-primary leading-relaxed">
+>>>>>>> main
                   When employers associate with Beeja Academy, they get industry-ready candidates who can be assigned to real-time projects from day one, without you having to spend time and money on training them. Get immediate access to skilled professionals and speed up the growth of your organization.
                 </p>
               </div>
               
+<<<<<<< HEAD
               <div className="flex items-start gap-4 p-4 bg-richblack-800 rounded-lg border-l-4 border-caribbeangreen-300">
                 <div className="w-3 h-3 bg-caribbeangreen-300 rounded-full mt-2 flex-shrink-0"></div>
                 <p className="text-richblack-100 leading-relaxed">
+=======
+              <div className="flex items-start gap-4 p-4 theme-bg-secondary rounded-lg border-l-4 border-caribbeangreen-300">
+                <div className="w-3 h-3 bg-caribbeangreen-300 rounded-full mt-2 flex-shrink-0"></div>
+                <p className="theme-text-primary leading-relaxed">
+>>>>>>> main
                   Beeja Academy trains candidates according to current industry demands and makes them available for the industry. Each of our candidates is trained and acquainted with the role nuances the position demands.
                 </p>
               </div>
@@ -200,6 +268,7 @@ const InstituteService = () => {
                   whileInView={'show'}
                   viewport={{ once: false, amount: 0.2 }}
                   transition={{ delay: index * 0.2 }}
+<<<<<<< HEAD
                   className="bg-richblack-800 p-4 rounded-lg"
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -207,6 +276,15 @@ const InstituteService = () => {
                     <h4 className="text-white font-semibold">{benefit.title}</h4>
                   </div>
                   <p className="text-richblack-300 text-sm">{benefit.description}</p>
+=======
+                  className="theme-bg-secondary p-4 rounded-lg"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    {benefit.icon}
+                    <h4 className="theme-text-primary font-semibold">{benefit.title}</h4>
+                  </div>
+                  <p className="theme-text-secondary text-sm">{benefit.description}</p>
+>>>>>>> main
                 </motion.div>
               ))}
             </div>
@@ -226,11 +304,19 @@ const InstituteService = () => {
             className="lg:w-[40%] relative"
           >
             <div className="bg-gradient-to-br from-caribbeangreen-300 to-blue-300 absolute top-4 left-4 w-full h-full blur-2xl opacity-20 rounded-xl"></div>
+<<<<<<< HEAD
             <div className="bg-richblack-800 rounded-xl p-8 relative z-10 border border-richblack-700">
               <div className="flex items-center justify-center h-64 bg-gradient-to-br from-richblack-700 to-richblack-600 rounded-lg">
                 <div className="text-center">
                   <FaHandshake className="text-6xl text-caribbeangreen-300 mx-auto mb-4" />
                   <p className="text-richblack-200">Professional Presentation</p>
+=======
+            <div className="theme-bg-secondary rounded-xl p-8 relative z-10 theme-border border">
+              <div className="flex items-center justify-center h-64 bg-gradient-to-br from-richblack-700 to-richblack-600 rounded-lg">
+                <div className="text-center">
+                  <FaHandshake className="text-6xl text-caribbeangreen-300 mx-auto mb-4" />
+                  <p className="theme-text-secondary">Professional Presentation</p>
+>>>>>>> main
                 </div>
               </div>
             </div>

@@ -1,10 +1,8 @@
-
 export const fadeIn = (direction, delay) => {
     return {
         hidden: {
             y: direction === 'up' ? 80 : direction === 'down' ? -80 : 0,
             opacity: 0,
-
             x: direction === 'left' ? 80 : direction === 'right' ? -180 : 0,
         },
         show: {
@@ -21,8 +19,6 @@ export const fadeIn = (direction, delay) => {
     }
 }
 
-
-
 export const bounce = {
     hidden: { y: -10, opacity: 0 },
     show: {
@@ -37,9 +33,6 @@ export const bounce = {
     }
 };
 
-
-
-
 export const scaleUp = {
     hidden: { scale: 0.1, opacity: 0 },
     show: {
@@ -47,8 +40,8 @@ export const scaleUp = {
         opacity: 1,
         transition: {
             type: 'spring',
-            damping: 50,
-            stiffness: 1500,
+            damping: 15,
+            stiffness: 200,
             duration: 0.5,
         }
     }

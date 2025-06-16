@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 import React, { useState } from "react";
 import { HomePageExplore } from "../../../../data/homepage-explore";
 import CourseCard from "./CourseCard";
@@ -40,6 +44,7 @@ const ExploreMore = () => {
       </div>
 
       {/* Tabs Section */}
+<<<<<<< HEAD
       <div className="hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
         {tabsName.map((ele, index) => {
           return (
@@ -48,6 +53,16 @@ const ExploreMore = () => {
                 ? "bg-richblack-900 text-richblack-5 font-medium"
                 : "text-richblack-200"
                 } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
+=======
+      <div className="flex flex-wrap gap-2 lg:gap-5 -mt-5 mx-auto w-full max-w-4xl justify-center bg-richblack-800 text-[#ffffff] p-2 lg:p-1 rounded-2xl lg:rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]">
+        {tabsName.map((ele, index) => {
+          return (
+            <div
+              className={`text-xs lg:text-[16px] flex flex-row items-center gap-1 lg:gap-2 ${currentTab === ele
+                ? "bg-richblack-900 text-[#ffffff] font-medium"
+                : "text-[#ffffff]"
+                } px-3 lg:px-7 py-2 lg:py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-[#ffffff] hover:scale-105 active:scale-95`}
+>>>>>>> main
               key={index}
               onClick={() => setMyCards(ele)}
             >
@@ -57,10 +72,17 @@ const ExploreMore = () => {
         })}
       </div>
 
+<<<<<<< HEAD
       <div className="hidden lg:block lg:h-[200px]"></div>
 
       {/* Cards Group */}
       <div className="lg:absolute gap-10 justify-center lg:gap-0 flex lg:justify-between flex-wrap w-full lg:bottom-[0] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3">
+=======
+      <div className="block h-[50px] lg:h-[100px]"></div>
+
+      {/* Cards Group */}
+      <div className="relative mx-auto max-w-maxContent gap-4 lg:gap-6 justify-center flex flex-wrap w-full text-black mb-7 px-3">
+>>>>>>> main
         {courses.map((ele, index) => {
           return (
             <CourseCard

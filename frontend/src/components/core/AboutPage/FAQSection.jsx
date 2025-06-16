@@ -34,7 +34,11 @@ const FAQSection = () => {
   }
 
   return (
+<<<<<<< HEAD
     <section className="mx-auto w-11/12 max-w-maxContent py-12 text-white">
+=======
+    <section className="mx-auto w-11/12 max-w-maxContent py-12 theme-text-primary">
+>>>>>>> main
       <motion.div
         variants={fadeIn('up', 0.1)}
         initial='hidden'
@@ -42,10 +46,17 @@ const FAQSection = () => {
         viewport={{ once: false, amount: 0.1 }}
         className="text-center mb-12"
       >
+<<<<<<< HEAD
         <h2 className="text-4xl font-semibold">
           Frequently Asked <HighlightText text="Questions" />
         </h2>
         <p className="text-richblack-300 mt-3">
+=======
+        <h2 className="text-4xl font-semibold theme-faq-text">
+          Frequently Asked <HighlightText text="Questions" />
+        </h2>
+        <p className="theme-text-secondary mt-3">
+>>>>>>> main
           Find answers to common questions about our platform and courses
         </p>
       </motion.div>
@@ -58,6 +69,7 @@ const FAQSection = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
+<<<<<<< HEAD
             className="border border-richblack-600 rounded-lg overflow-hidden bg-richblack-800"
           >
             <button
@@ -67,6 +79,17 @@ const FAQSection = () => {
               <span className="text-lg font-medium text-richblack-5">{faq.question}</span>
               <span 
                 className={`transform transition-transform duration-300 text-xl text-richblack-5
+=======
+            className="theme-border border rounded-lg overflow-hidden theme-bg-secondary theme-container-shadow"
+          >
+            <button
+              className="w-full px-6 py-4 text-left hover:bg-opacity-80 transition-all duration-300 flex justify-between items-center"
+              onClick={() => toggleAccordion(index)}
+            >
+              <span className="text-lg font-medium theme-faq-text">{faq.question}</span>
+              <span 
+                className={`transform transition-transform duration-300 text-xl theme-faq-text
+>>>>>>> main
                   ${activeIndex === index ? 'rotate-180' : ''}`}
               >
                 ▼
@@ -77,7 +100,11 @@ const FAQSection = () => {
               className={`transition-all duration-300 ease-in-out overflow-hidden
                 ${activeIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
             >
+<<<<<<< HEAD
               <p className="p-6 text-richblack-300 text-base leading-relaxed">
+=======
+              <p className="p-6 theme-text-secondary text-base leading-relaxed">
+>>>>>>> main
                 {faq.answer}
               </p>
             </div>
