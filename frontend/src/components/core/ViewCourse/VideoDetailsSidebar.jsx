@@ -7,14 +7,10 @@ import { setCourseViewSidebar } from "../../../slices/sidebarSlice"
 
 import { BsChevronDown } from "react-icons/bs"
 import { IoIosArrowBack } from "react-icons/io"
-
 import { IoMdClose } from 'react-icons/io'
 import { HiMenuAlt1 } from 'react-icons/hi'
 
-
-
 export default function VideoDetailsSidebar({ setReviewModal }) {
-
   const [activeStatus, setActiveStatus] = useState("") // store curr section id
   const [videoBarActive, setVideoBarActive] = useState("") // store curr SubSection Id
   const navigate = useNavigate()
@@ -29,9 +25,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
     completedLectures,
   } = useSelector((state) => state.viewCourse)
 
-
   const { courseViewSidebar } = useSelector(state => state.sidebar)
-
 
   // set which section - subSection is selected 
   useEffect(() => {
@@ -45,15 +39,11 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
     })()
   }, [courseSectionData, courseEntireData, location.pathname])
 
-
-
-
   return (
     <>
       <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800">
         <div className="mx-5 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richblack-600 py-5 text-lg font-bold text-richblack-25">
           <div className="flex w-full items-center justify-between ">
-
             {/* open - close side bar icons */}
             <div
               className="sm:hidden text-white cursor-pointer "
@@ -74,12 +64,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
             {/* add review button */}
             <IconBtn
               text="Add Review"
-              // customClasses="ml-auto"
-<<<<<<< HEAD
               onClick={() => setReviewModal(true)}
-=======
-              onclick={() => setReviewModal(true)}
->>>>>>> main
             />
           </div>
 
@@ -91,7 +76,6 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
             </p>
           </div>
         </div>
-
 
         {/* render all section -subSection */}
         <div className="h-[calc(100vh - 5rem)] overflow-y-auto">

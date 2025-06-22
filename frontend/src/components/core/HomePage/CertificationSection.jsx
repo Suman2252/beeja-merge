@@ -61,7 +61,7 @@ const CertificationSection = () => {
         viewport={{ once: false, amount: 0.1 }}
         className='text-center mb-16'
       >
-        <h2 className='text-3xl lg:text-4xl font-semibold text-white mb-4'>
+        <h2 className='text-3xl lg:text-4xl font-semibold theme-text-primary mb-4'>
           We provide
           <HighlightText text={" Certification"} />
         </h2>
@@ -98,7 +98,7 @@ const CertificationSection = () => {
                 </div>
                 
                 {/* Certification Name */}
-                <h3 className="text-white font-semibold text-sm md:text-base text-center group-hover:text-yellow-50 transition-colors duration-300">
+                <h3 className="theme-text-primary font-semibold text-sm md:text-base text-center group-hover:text-yellow-50 transition-colors duration-300">
                   {cert.name}
                 </h3>
               </div>

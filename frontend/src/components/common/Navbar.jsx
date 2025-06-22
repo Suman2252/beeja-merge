@@ -23,8 +23,8 @@ const Navbar = () => {
   const [subLinks, setSubLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState("top");
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [catalogDropdownOpen, setCatalogDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   const fetchSublinks = useCallback(async () => {
     try {
@@ -41,20 +41,21 @@ const Navbar = () => {
     fetchSublinks();
   }, [fetchSublinks]);
 
-  const controlNavbar = useCallback(() => {
-    if (window.scrollY > 200) {
-      if (window.scrollY > lastScrollY) setShowNavbar("hide");
-      else setShowNavbar("show");
-    } else setShowNavbar("top");
-    setLastScrollY(window.scrollY);
-  }, [lastScrollY]);
 
+  // Close dropdowns when clicking outside
   useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.dropdown-container')) {
+        setCatalogDropdownOpen(false);
+        setServicesDropdownOpen(false);
+      }
     };
-  }, [controlNavbar]);
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
@@ -72,11 +73,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[10] flex h-14 w-full items-center justify-center border-b-[1px] theme-border theme-bg-primary theme-text-primary translate-y-0 transition-all ${showNavbar}`}
+      className={`z-[9999] flex h-14 w-full items-center justify-center border-b-[1px] theme-border theme-bg-primary theme-text-primary translate-y-0 transition-all fixed top-0 left-0`}
       style={{
-        backgroundColor: 'var(--navbar-bg)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)'
+        backgroundColor: isDarkMode ? 'rgba(22, 24, 39, 0.7)' : 'rgba(230, 230, 230, 0.7)',
+        backdropFilter: 'blur(5px)',
+        WebkitBackdropFilter: 'blur(5px)'
       }}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
@@ -93,35 +94,106 @@ const Navbar = () => {
 
         {/* Center Navigation */}
         <div className="hidden md:flex items-center">
-          <ul className="flex gap-x-6 theme-text-primary">
+          <ul className="flex items-center gap-x-6 theme-text-primary">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
                 {link.title === "Catalog" ? (
-                  <div className="group relative flex cursor-pointer items-center gap-1">
-                    <p>{link.title}</p>
-                    <MdKeyboardArrowDown />
-                    <div className="invisible absolute left-[50%] top-[50%] z-[10000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg theme-submenu-bg p-4 theme-submenu-text opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px] theme-submenu-shadow">
-                      <div className="absolute left-[50%] top-0 z-[100] h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded theme-submenu-bg"></div>
-                      {loading ? (
-                        <p className="text-center">Loading...</p>
-                      ) : subLinks?.length ? (
-                        subLinks.map((subLink, i) => (
-                          <Link
-                            key={i}
-                            to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`}
-                            className="rounded-lg bg-transparent py-4 pl-4 hover:bg-opacity-80 theme-submenu-text"
-                          >
-                            {subLink.name}
-                          </Link>
-                        ))
-                      ) : (
-                        <p className="text-center">No Courses Found</p>
-                      )}
+                  <div 
+                    className="group relative flex cursor-pointer items-center gap-1" 
+                    onClick={() => {
+                      setCatalogDropdownOpen(!catalogDropdownOpen);
+                      setServicesDropdownOpen(false);
+                    }}
+                    onMouseEnter={() => {
+                      setCatalogDropdownOpen(true);
+                      setServicesDropdownOpen(false);
+                    }}
+                    onMouseLeave={() => {
+                      setCatalogDropdownOpen(false);
+                    }}
+                  >
+                    <p className="py-1">{link.title}</p>
+                    <MdKeyboardArrowDown className={`transition-transform duration-200 ${catalogDropdownOpen ? 'rotate-180' : ''}`} />
+                    
+                    {/* Dropdown Menu */}
+                    <div className={`absolute left-1/2 top-full mt-2 w-64 -translate-x-1/2 transition-all duration-300 ${catalogDropdownOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-2'}`}>
+                      {/* Arrow Pointer */}
+                      <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#f5f5f5] border border-[#e5e7eb] dark:bg-gray-700 dark:border-gray-600"></div>
+                      
+                      {/* Dropdown Content */}
+                      <div 
+                        className="relative bg-[#f5f5f5] border border-[#e5e7eb] dark:bg-gray-700 dark:border-gray-600 rounded-xl shadow-2xl overflow-hidden theme-submenu-text"
+                        onMouseEnter={() => setCatalogDropdownOpen(true)}
+                        onMouseLeave={() => setCatalogDropdownOpen(false)}
+                      >
+                        <div className="p-2">
+                          {loading ? (
+                            <p className="text-center py-4">Loading...</p>
+                          ) : subLinks?.length ? (
+                            subLinks.map((subLink, i) => (
+                              <Link
+                                key={i}
+                                to={`/catalog/${subLink.name.split(" ").join("-").toLowerCase()}`}
+                                className="block px-4 py-3 rounded-lg hover:bg-stone-200 dark:hover:bg-gray-600 transition-colors duration-200 theme-submenu-text"
+                                onClick={() => setCatalogDropdownOpen(false)}
+                              >
+                                {subLink.name}
+                              </Link>
+                            ))
+                          ) : (
+                            <p className="text-center py-4">No Courses Found</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : link.title === "Services" ? (
+                  <div 
+                    className="group relative flex cursor-pointer items-center gap-1" 
+                    onClick={() => {
+                      setServicesDropdownOpen(!servicesDropdownOpen);
+                      setCatalogDropdownOpen(false);
+                    }}
+                    onMouseEnter={() => {
+                      setServicesDropdownOpen(true);
+                      setCatalogDropdownOpen(false);
+                    }}
+                    onMouseLeave={() => {
+                      setServicesDropdownOpen(false);
+                    }}
+                  >
+                    <p className="py-1">{link.title}</p>
+                    <MdKeyboardArrowDown className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+                    
+                    {/* Dropdown Menu */}
+                    <div className={`absolute left-1/2 top-full mt-2 w-64 -translate-x-1/2 transition-all duration-300 ${servicesDropdownOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-2'}`}>
+                      {/* Arrow Pointer */}
+                      <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#f5f5f5] border border-[#e5e7eb] dark:bg-gray-700 dark:border-gray-600"></div>
+                      
+                      {/* Dropdown Content */}
+                      <div 
+                        className="relative bg-[#f5f5f5] border border-[#e5e7eb] dark:bg-gray-700 dark:border-gray-600 rounded-xl shadow-2xl overflow-hidden theme-submenu-text"
+                        onMouseEnter={() => setServicesDropdownOpen(true)}
+                        onMouseLeave={() => setServicesDropdownOpen(false)}
+                      >
+                        <div className="p-2">
+                          {link.children?.map((child, i) => (
+                            <Link
+                              key={i}
+                              to={child.path}
+                              className="block px-4 py-3 rounded-lg hover:bg-stone-200 dark:hover:bg-gray-600 transition-colors duration-200 theme-submenu-text"
+                              onClick={() => setServicesDropdownOpen(false)}
+                            >
+                              {child.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ) : (
                   <Link to={link?.path}>
-                    <p className={`${matchRoute(link?.path) ? "bg-yellow-25 text-black" : ""} rounded-xl p-1 px-3`}>
+                    <p className={`${matchRoute(link?.path) ? "theme-button-primary rounded-xl" : ""} py-1 px-3`}>
                       {link.title}
                     </p>
                   </Link>
@@ -144,7 +216,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={handleSignup}
-                className="rounded-[8px] bg-yellow-50 px-[12px] py-[8px] text-richblack-900"
+                className="rounded-[8px] theme-button-primary px-[12px] py-[8px]"
               >
                 Sign up
               </button>
@@ -185,13 +257,31 @@ const Navbar = () => {
             <ul className="flex flex-col gap-4 theme-text-primary">
               {NavbarLinks.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link?.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block rounded-xl p-2 hover:bg-richblack-800"
-                  >
-                    {link.title}
-                  </Link>
+                  {link.title === "Services" ? (
+                    <div>
+                      <p className="block rounded-xl p-2 font-semibold">{link.title}</p>
+                      <div className="ml-4 flex flex-col gap-2">
+                        {link.children?.map((child, i) => (
+                          <Link
+                            key={i}
+                            to={child.path}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block rounded-xl p-2 hover:bg-richblack-800 text-sm"
+                          >
+                            {child.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link?.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block rounded-xl p-2 hover:bg-richblack-800"
+                    >
+                      {link.title}
+                    </Link>
+                  )}
                 </li>
               ))}
               {!token && (

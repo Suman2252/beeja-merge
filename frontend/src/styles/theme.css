@@ -1,18 +1,22 @@
 /* Light Theme */
 :root[data-theme="light"] {
-  --background-primary: #ffffff;
+  --background-primary: #e8e9ea;
   --background-secondary: #f8f9fa;
-  --empowering-section-bg: #bbf8f795;
+  --auth-gradient-1: rgba(255, 214, 10, 0.7);
+  --auth-gradient-2: rgba(255, 165, 0, 0.7);
+  --auth-gradient-3: rgba(22, 163, 74, 0.7);
+  --auth-gradient-4: rgba(37, 79, 163, 0.7);
+  --empowering-section-bg: #FCE4EC;
   --job-requirements-bg: #fce4ec;
   --job-requirements-card-bg: #fce4ec;
   --text-primary: #212529;
   --text-secondary: #6c757d;
   --text-white: #212529;
   --accent-color: #254FA3;
-  --border-color: #dee2e6;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --shadow-color: rgba(0, 0, 0, 0.15);
-  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --border-color: #e9ecef;
+  --card-bg: rgba(248, 249, 250, 0.9);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(248, 249, 250, 0.95);
   --button-bg: #f8f9fa;
   --button-text: #212529;
   --heading-color: #1a1a1a;
@@ -20,19 +24,18 @@
   --review-text: #333333;
   --faq-text: #000000;
   --footer-text: #000000;
-  --footer-bg: #79e5f16c;
   --location-text: #000000;
-  --location-bg: #f8f9fa;
-  --benefits-bg: #ffffff;
+  --location-bg: rgba(255, 182, 193, 0.25);
+  --card-glass-bg: rgba(255, 182, 193, 0.25);
+  --error-text: #dc3545;
   --benefits-text: #000000;
-  --benefits-shadow: rgba(0, 0, 0, 0.1);
   --submenu-bg: #ffffff;
   --submenu-text: #000000;
   --submenu-shadow: rgba(0, 0, 0, 0.1);
   --container-shadow: rgba(0, 0, 0, 0.1);
   --social-icon-bg: #6b7280;
-  --highlight-color: #FFD60A;
-  --button-primary-bg: #FFD60A;
+  --highlight-color: #B784F3;
+  --button-primary-bg: #B784F3;
   --button-primary-text: #000000;
   --button-secondary-bg: #2c333f;
   --button-secondary-text: #ffffff;
@@ -42,6 +45,10 @@
 :root[data-theme="dark"] {
   --background-primary: #000814;
   --background-secondary: #161d29;
+  --auth-gradient-1: rgba(255, 214, 10, 0.2);
+  --auth-gradient-2: rgba(255, 165, 0, 0.2);
+  --auth-gradient-3: rgba(22, 163, 74, 0.2);
+  --auth-gradient-4: rgba(37, 79, 163, 0.2);
   --empowering-section-bg: #000814;
   --job-requirements-bg: #161d29;
   --job-requirements-card-bg: #161d29;
@@ -60,27 +67,46 @@
   --review-text: #e6e6e6;
   --faq-text: #ffffff;
   --footer-text: #ffffff;
-  --footer-bg: #000814;
   --location-text: #ffffff;
-  --location-bg: #161d29;
-  --benefits-bg: #161d29;
+  --location-bg: transparent;
+  --card-glass-bg: transparent;
+  --error-text: #ff6b6b;
   --benefits-text: #ffffff;
-  --benefits-shadow: rgba(0, 0, 0, 0.3);
   --submenu-bg: #161d29;
-  --submenu-text: #ffffff;
-  --submenu-shadow: rgba(0, 0, 0, 0.3);
+  --submenu-text: #000000;
+  --submenu-shadow: rgba(255, 255, 255, 0.3);
   --container-shadow: rgba(0, 0, 0, 0.3);
   --social-icon-bg: rgba(22, 29, 41, 0.9);
   --highlight-color: #FFD60A;
-  --button-primary-bg: #FFD60A;
+  --button-primary-bg: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
   --button-primary-text: #000000;
   --button-secondary-bg: #2c333f;
   --button-secondary-text: #ffffff;
+  --accent-blue: #60a5fa;
+  --accent-yellow: #fcd34d;
+  --accent-green: #34d399;
+  --highlight-bg: #60a5fa;
 }
 
 /* Theme Transition */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 3D Spike Sphere Animation */
+@keyframes spherePulse {
+  0% {
+    box-shadow: 
+      0 0 30px rgba(255, 167, 38, 0.6),
+      inset 0 0 30px rgba(255, 255, 255, 0.3),
+      0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 0 50px rgba(255, 167, 38, 0.8),
+      inset 0 0 40px rgba(255, 255, 255, 0.4),
+      0 25px 80px rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* Base Theme Styles */
@@ -91,19 +117,36 @@ body {
 
 /* Theme Classes */
 .theme-text-primary {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .theme-text-secondary {
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
 }
 
 .theme-text-white {
-  color: var(--text-white);
+  color: var(--text-white) !important;
 }
 
 .theme-heading {
-  color: var(--heading-color);
+  color: var(--heading-color) !important;
+}
+
+/* Global text color overrides */
+:root[data-theme="light"] .theme-text-primary {
+  color: #212529 !important;
+}
+
+:root[data-theme="dark"] .theme-text-primary {
+  color: #f1f2ff !important;
+}
+
+:root[data-theme="light"] .theme-text-secondary {
+  color: #000000 !important;
+}
+
+:root[data-theme="dark"] .theme-text-secondary {
+  color: #afb2bf !important;
 }
 
 .theme-bg-primary {
@@ -127,6 +170,18 @@ body {
 .theme-button-primary {
   background-color: var(--button-primary-bg);
   color: var(--button-primary-text);
+}
+
+/* Light mode gradient button override */
+[data-theme="light"] .theme-button-primary {
+  background: linear-gradient(118.19deg, #967BB6 -3.62%, #B784F3 50.44%, #E0B0FF 104.51%) !important;
+  color: #000000 !important;
+}
+
+/* Dark mode gradient button override */
+[data-theme="dark"] .theme-button-primary {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%) !important;
+  color: #000000 !important;
 }
 
 .theme-button-secondary {
@@ -173,7 +228,43 @@ body {
 }
 
 .theme-location-bg {
-  background-color: var(--location-bg);
+  background: var(--location-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.2);
+}
+
+.theme-card-glass {
+  background: var(--card-glass-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.2);
+}
+
+/* Remove shadow for glass cards in dark mode */
+:root[data-theme="dark"] .theme-card-glass {
+  box-shadow: none;
+}
+
+.theme-error-text {
+  color: var(--error-text);
+}
+
+.form-style {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.form-style:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(37, 79, 163, 0.2);
+}
+
+.form-style::placeholder {
+  color: var(--text-secondary);
 }
 
 .theme-benefits-bg {
@@ -210,6 +301,42 @@ body {
   color: var(--highlight-color);
 }
 
+/* Accent Colors */
+.theme-accent-blue {
+  color: var(--accent-blue);
+}
+
+.theme-accent-yellow {
+  color: var(--accent-yellow);
+}
+
+.theme-accent-green {
+  color: var(--accent-green);
+}
+
+.theme-highlight-bg {
+  background-color: var(--highlight-bg);
+}
+
+.theme-text-on-highlight {
+  color: var(--text-white);
+}
+
+/* Define the missing theme classes */
+:root[data-theme="light"] {
+  --accent-blue: #0a5a72;
+  --accent-yellow: #fbbf24;
+  --accent-green: #2cb910;
+  --highlight-bg: #0a5a72d6;
+}
+
+:root[data-theme="dark"] {
+  --accent-blue: #0a5a72;
+  --accent-yellow: #fcd34d;
+  --accent-green: #34d399;
+  --highlight-bg: #0a5a72a4;
+}
+
 /* Navbar Specific */
 .theme-navbar {
   background-color: var(--navbar-bg);
@@ -241,3 +368,398 @@ body {
 .mobile-menu-item:hover {
   background-color: var(--background-secondary);
 }
+
+/* Form Styles */
+.form-style {
+  border: 1px solid var(--border-color);
+}
+
+.form-style:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(37, 79, 163, 0.2);
+}
+
+.form-style::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Input field specific styles for light/dark mode */
+:root[data-theme="light"] .form-style {
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border-color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .form-style {
+  background-color: #2c333f;
+  color: var(--text-primary);
+  border-color: #2c333f;
+}
+
+/* Dark Mode Gradient Overrides - Replace gradients with solid colors */
+:root[data-theme="dark"] {
+  /* Button gradient overrides */
+  --gradient-blue: #3b82f6;
+  --gradient-indigo: #3b82f6;
+  --gradient-sky: #3b82f6;
+  --gradient-purple: #3b82f6;
+  --gradient-pink: #3b82f6;
+  --gradient-red: #3b82f6;
+  --gradient-orange: #3b82f6;
+  --gradient-yellow: #3b82f6;
+  --gradient-green: #3b82f6;
+  --gradient-teal: #3b82f6;
+  --gradient-cyan: #3b82f6;
+}
+
+/* Override all gradient backgrounds in dark mode */
+:root[data-theme="dark"] .bg-gradient-to-r,
+:root[data-theme="dark"] .bg-gradient-to-l,
+:root[data-theme="dark"] .bg-gradient-to-t,
+:root[data-theme="dark"] .bg-gradient-to-b,
+:root[data-theme="dark"] .bg-gradient-to-tr,
+:root[data-theme="dark"] .bg-gradient-to-tl,
+:root[data-theme="dark"] .bg-gradient-to-br,
+:root[data-theme="dark"] .bg-gradient-to-bl {
+  background: #3beaf664 !important;
+}
+
+/* Specific gradient color overrides for dark mode */
+:root[data-theme="dark"] .from-blue-500,
+:root[data-theme="dark"] .from-blue-400,
+:root[data-theme="dark"] .from-blue-600,
+:root[data-theme="dark"] .to-indigo-500,
+:root[data-theme="dark"] .to-indigo-400,
+:root[data-theme="dark"] .to-indigo-600,
+:root[data-theme="dark"] .to-sky-500,
+:root[data-theme="dark"] .to-sky-400,
+:root[data-theme="dark"] .to-sky-600,
+:root[data-theme="dark"] .from-purple-500,
+:root[data-theme="dark"] .to-pink-500,
+:root[data-theme="dark"] .from-red-500,
+:root[data-theme="dark"] .to-orange-500,
+:root[data-theme="dark"] .from-yellow-500,
+:root[data-theme="dark"] .to-green-500,
+:root[data-theme="dark"] .from-teal-500,
+:root[data-theme="dark"] .to-cyan-500 {
+  background: #ffffff !important;
+}
+
+/* Override gradient text colors in dark mode */
+:root[data-theme="dark"] .bg-gradient-to-r.bg-clip-text,
+:root[data-theme="dark"] .bg-gradient-to-l.bg-clip-text,
+:root[data-theme="dark"] .bg-gradient-to-t.bg-clip-text,
+:root[data-theme="dark"] .bg-gradient-to-b.bg-clip-text {
+  background: #3b82f6 !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Override border gradients in dark mode */
+:root[data-theme="dark"] .border-gradient-to-r,
+:root[data-theme="dark"] .border-gradient-to-l,
+:root[data-theme="dark"] .border-gradient-to-t,
+:root[data-theme="dark"] .border-gradient-to-b {
+  border-color: #3b82f6 !important;
+}
+
+/* Override shadow gradients in dark mode */
+:root[data-theme="dark"] .shadow-blue-500\/25,
+:root[data-theme="dark"] .shadow-indigo-500\/25,
+:root[data-theme="dark"] .shadow-sky-500\/25,
+:root[data-theme="dark"] .shadow-purple-500\/25,
+:root[data-theme="dark"] .shadow-pink-500\/25 {
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Hover shadow overrides */
+:root[data-theme="dark"] .hover\:shadow-2xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Dropdown menu backgrounds */
+:root[data-theme="dark"] .bg-white\/30 {
+  background: #1f2937 !important;
+}
+
+:root[data-theme="dark"] .border-white\/20 {
+  border-color: #374151 !important;
+}
+
+:root[data-theme="light"] .bg-white\/30 {
+  background: #f3f4f6 !important;
+}
+
+:root[data-theme="light"] .border-white\/20 {
+  border-color: #e5e7eb !important;
+}
+
+/* Success Stories text - black in light mode, white in dark mode */
+.success-stories-text {
+  color: #000000;
+}
+
+:root[data-theme="dark"] .success-stories-text {
+  color: #ffffff !important;
+}
+
+/* Quote text - black in light mode, white in dark mode */
+.theme-quote-text {
+  color: #000000;
+}
+
+:root[data-theme="dark"] .theme-quote-text {
+  color: #ffffff !important;
+}
+
+/* Smart Learning heading - lavender gradient in light mode, blue gradient in dark mode */
+.theme-smart-learning-heading {
+  color: var(--heading-color);
+}
+
+:root[data-theme="light"] .theme-smart-learning-heading {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="dark"] .theme-smart-learning-heading {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Vision and Mission headings - specific gradients in light mode, blue gradient in dark mode */
+.theme-vision-heading {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme-mission-heading {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="dark"] .theme-vision-heading,
+:root[data-theme="dark"] .theme-mission-heading {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Professional Team Border - lavender gradient in light mode, blue gradient in dark mode */
+:root[data-theme="light"] .theme-professional-team-border {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+:root[data-theme="dark"] .theme-professional-team-border {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Job Requirements heading - lavender gradient in light mode, blue gradient in dark mode */
+.theme-job-requirements-heading {
+  color: var(--heading-color);
+}
+
+:root[data-theme="light"] .theme-job-requirements-heading {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="dark"] .theme-job-requirements-heading {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Benefits for Employers heading - lavender gradient in light mode, blue gradient in dark mode */
+.theme-benefits-employers-heading {
+  color: var(--heading-color);
+}
+
+:root[data-theme="light"] .theme-benefits-employers-heading {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="dark"] .theme-benefits-employers-heading {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ready to Transform section background - lavender gradient in light mode, blue gradient in dark mode */
+.theme-ready-transform-bg {
+  background: linear-gradient(to right, rgba(181, 93, 254, 0.5), rgba(33, 106, 253, 0.5));
+}
+
+:root[data-theme="light"] .theme-ready-transform-bg {
+  background: linear-gradient(118.19deg, rgba(107, 76, 147, 0.5) -3.62%, rgba(138, 43, 226, 0.5) 50.44%, rgba(147, 112, 219, 0.5) 104.51%);
+}
+
+:root[data-theme="dark"] .theme-ready-transform-bg {
+  background: linear-gradient(118.19deg, rgba(31, 162, 255, 0.5) -3.62%, rgba(18, 216, 250, 0.5) 50.44%, rgba(166, 255, 203, 0.5) 104.51%);
+}
+
+/* Professional Team Collaboration background - lavender gradient in light mode, grey in dark mode */
+.theme-professional-team-bg {
+  background: #374151; /* bg-gray-700 */
+}
+
+:root[data-theme="light"] .theme-professional-team-bg {
+  background: linear-gradient(118.19deg, #6B4C93 -3.62%, #8A2BE2 50.44%, #9370DB 104.51%);
+}
+
+:root[data-theme="dark"] .theme-professional-team-bg {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+}
+
+/* Professional Team Collaboration text - black in both themes */
+.theme-professional-team-text {
+  color: #000000;
+}
+
+:root[data-theme="light"] .theme-professional-team-text {
+  color: #000000;
+}
+
+:root[data-theme="dark"] .theme-professional-team-text {
+  color: #000000;
+}
+
+/* Learn More button - blue gradient on hover in dark mode only */
+:root[data-theme="dark"] .theme-learn-more-btn:hover {
+  background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%) !important;
+  color: #000000 !important;
+}
+
+/* Service card hover border - lavender gradient in light mode, blue gradient in dark mode */
+:root[data-theme="light"] .theme-service-card:hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #967BB6 -3.62%, #B784F3 50.44%, #E0B0FF 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+:root[data-theme="dark"] .theme-service-card:hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Benefit card hover border - blue gradient in dark mode only */
+:root[data-theme="dark"] .theme-benefit-card {
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+:root[data-theme="dark"] .theme-benefit-card:hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transform: translateY(-2px);
+}
+
+/* Service icons - lavender gradient on hover in light mode, blue color on hover in dark mode */
+:root[data-theme="light"] .theme-service-card:hover .theme-service-icon {
+  color: #B784F3 !important;
+  transition: color 0.3s ease;
+}
+
+:root[data-theme="dark"] .theme-service-card:hover .theme-service-icon {
+  color: #12D8FA !important;
+  transition: color 0.3s ease;
+}
+
+/* Hero icon - blue color on hover in dark mode */
+:root[data-theme="dark"] .theme-hero-icon:hover {
+  color: #12D8FA !important;
+  transition: color 0.3s ease;
+}
+
+/* Yellow border and dot - blue color on hover in dark mode */
+:root[data-theme="dark"] .theme-yellow-border:hover {
+  border-left-color: #12D8FA !important;
+  transition: border-color 0.3s ease;
+}
+
+:root[data-theme="dark"] .theme-yellow-border:hover .theme-yellow-dot {
+  background-color: #12D8FA !important;
+  transition: background-color 0.3s ease;
+}
+
+/* Contact page footer - remove background */
+.contact-page-footer .footerContainer {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Benefits for Employers card borders - lavender gradient in light mode, blue gradient in dark mode */
+.theme-benefits-card {
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+:root[data-theme="light"] .theme-benefits-card:hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #967BB6 -3.62%, #B784F3 50.44%, #E0B0FF 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(183, 132, 243, 0.3);
+}
+
+:root[data-theme="dark"] .theme-benefits-card:hover {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background-secondary), var(--background-secondary)), 
+                    linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 15px rgba(18, 216, 250, 0.3);
+}
+
+/* Make number badges thicker/more opaque in dark mode */
+:root[data-theme="dark"] .theme-benefits-card .bg-gradient-to-r {
+  background: linear-gradient(to right, #833AB4, #FD1D1D) !important;
+  opacity: 1 !important;
+  font-weight: 800 !important;
+}
+
+/* Page-specific footer styles - light theme */
+:root[data-theme="light"] .about-page-footer .footerContainer,
+:root[data-theme="light"] .contact-page-footer .footerContainer,
+:root[data-theme="light"] .institute-page-footer .footerContainer,
+:root[data-theme="light"] .student-page-footer .footerContainer {
+  background: #fce4ec !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+  

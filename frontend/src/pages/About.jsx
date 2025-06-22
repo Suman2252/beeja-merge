@@ -9,7 +9,6 @@ import LearningGrid from "../components/core/AboutPage/LearningGrid"
 import Quote from "../components/core/AboutPage/Quote"
 import HighlightText from "../components/core/HomePage/HighlightText"
 import Img from "../components/common/Img"
-import ReviewSlider from './../components/common/ReviewSlider';
 import { motion } from 'framer-motion';
 import { fadeIn } from "../components/common/motionFrameVarients"
 import TeamCard from "./Card/components/TeamCard"
@@ -20,7 +19,7 @@ const About = () => {
   return (
     <div className={styles.aboutContainer}>
       <AboutBackground />
-      <section className="bg-richblack-700 theme-empowering-section">
+      <section id="empowering-section" className="theme-empowering-section">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center">
           <motion.header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             <motion.p
@@ -75,7 +74,7 @@ const About = () => {
               viewport={{ once: false, amount: 0.1 }}
               className="my-24 flex lg:w-[50%] flex-col gap-10"
             >
-              <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%]">
+              <h1 className="text-4xl font-semibold lg:w-[70%] theme-smart-learning-heading">
                 Smart Learning. Bright Earning. Your Future, Online
               </h1>
               <p className="text-base font-medium theme-text-secondary lg:w-[95%]">
@@ -116,8 +115,8 @@ const About = () => {
               viewport={{ once: false, amount: 0.1 }}
               className='text-center text-3xl lg:text-4xl font-semibold mt-7 theme-heading'
             >
-              What Our Says
-              <HighlightText text={"Students "} />
+              What Our
+              <HighlightText text={" Students "} />
               Says
             </motion.div>
             <motion.div
@@ -125,23 +124,17 @@ const About = () => {
               initial='hidden'
               whileInView={'show'}
               viewport={{ once: false, amount: 0.1 }}
+              className="mt-8"
+              id="team-card-section"
             >
               <TeamCard />
             </motion.div>
-            <div 
-              style={{ 
-                height: '.5px', 
-                backgroundColor: 'var(--border-color)', 
-                width: '100%',
-                filter: 'blur(1px)',
-                margin: '2px 0'
-              }} 
-            />
+            <div style={{ height: '.5px', backgroundColor: 'gray', width: '100%' }} />
           </div>
 
           <div className="flex flex-col items-center lg:gap-10 lg:flex-row justify-between">
             <div className="my-24 flex lg:w-[40%] flex-col gap-10">
-              <h1 className="bg-gradient-to-b from-[#FF512F] to-[#F09819] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%]">
+              <h1 className="theme-vision-heading text-4xl font-semibold lg:w-[70%]">
                 Our Vision
               </h1>
               <p className="text-base font-medium theme-text-secondary lg:w-[95%]">
@@ -150,7 +143,7 @@ const About = () => {
             </div>
 
             <div className="my-24 flex lg:w-[40%] flex-col gap-10">
-              <h1 className="bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text text-4xl font-semibold lg:w-[70%]">
+              <h1 className="theme-mission-heading text-4xl font-semibold lg:w-[70%]">
                 Our Mission
               </h1>
               <p className="text-base font-medium theme-text-secondary lg:w-[95%]">
@@ -173,16 +166,8 @@ const About = () => {
         <LearningGrid />
       </section>
 
-      {/* Reviews from Other Learner */}
-      <div className="my-20 px-5">
-        <h1 className="text-center text-4xl font-semibold mt-8 theme-heading">
-          Reviews from other learners
-        </h1>
-        <ReviewSlider />
-      </div>
-
       {/* Footer */}
-      <footer>
+      <footer className="about-page-footer">
         <ImprovedFooter />
       </footer>
     </div>

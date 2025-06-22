@@ -9,13 +9,9 @@ import { FaShareSquare } from "react-icons/fa"
 
 import { addToCart } from "../../../slices/cartSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
-<<<<<<< HEAD
 import { requestCourseAccess } from "../../../services/operations/courseAccessAPI"
 import RatingStars from "../../common/RatingStars"
-=======
->>>>>>> main
 import Img from './../../common/Img';
-
 
 function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   const { user } = useSelector((state) => state.profile)
@@ -53,7 +49,6 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
     })
   }
 
-<<<<<<< HEAD
   const handleRequestAccess = async () => {
     if (!user) {
       toast.error("Please login to request access");
@@ -72,8 +67,6 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
     }
   };
 
-=======
->>>>>>> main
   // console.log("Student already enrolled ", course?.studentsEnroled, user?._id)
 
   return (
@@ -90,7 +83,6 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
 
         <div className="px-4">
           <div className="space-x-3 pb-4 text-3xl font-semibold">
-<<<<<<< HEAD
             {course?.courseType === 'Free' ? (
               <span className="text-caribbeangreen-100">Free</span>
             ) : (
@@ -152,33 +144,6 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
               30-Day Money-Back Guarantee
             </p>
           )}
-=======
-            Rs. {CurrentPrice}
-          </div>
-          <div className="flex flex-col gap-4">
-            <button
-              className="yellowButton outline-none"
-              onClick={
-                user && course?.studentsEnrolled.includes(user?._id)
-                  ? () => navigate("/dashboard/enrolled-courses")
-                  : handleBuyCourse
-              }
-            >
-              {user && course?.studentsEnrolled.includes(user?._id)
-                ? "Go To Course"
-                : "Buy Now"}
-            </button>
-            {(!user || !course?.studentsEnrolled.includes(user?._id)) && (
-              <button onClick={handleAddToCart} className="blackButton outline-none">
-                Add to Cart
-              </button>
-            )}
-          </div>
-
-          <p className="pb-3 pt-6 text-center text-sm text-richblack-25">
-            30-Day Money-Back Guarantee
-          </p>
->>>>>>> main
 
           <div className={``}>
             <p className={`my-2 text-xl font-semibold `}>
@@ -210,8 +175,4 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   )
 }
 
-<<<<<<< HEAD
 export default CourseDetailsCard
-=======
-export default CourseDetailsCard
->>>>>>> main

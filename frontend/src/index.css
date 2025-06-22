@@ -25,11 +25,20 @@ body {
 }
 
 [data-theme="dark"] .homepage_bg {
-  background: url('./assets/Images/bghome.svg'), #ffffff;  /* SVG pattern on white in dark mode */
+  background: url('./assets/Images/bghome.svg'), #08082c;  /* SVG pattern on navy blue in dark mode */
   background-blend-mode: normal;
 }
 
 .gradient_color {
+  background: linear-gradient(118.19deg, #967BB6 -3.62%, #B784F3 50.44%, #E0B0FF 104.51%),
+    linear-gradient(0deg, #F1F2FF, #F1F2FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark mode - keep original blue gradient */
+[data-theme="dark"] .gradient_color {
   background: linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%),
     linear-gradient(0deg, #F1F2FF, #F1F2FF);
   -webkit-background-clip: text;

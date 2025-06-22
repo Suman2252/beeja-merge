@@ -11,9 +11,6 @@ import { setCourse, setEditCourse, setStep, } from "../../../../../slices/course
 import IconBtn from "../../../../common/IconBtn"
 import NestedView from "./NestedView"
 
-
-
-
 export default function CourseBuilderForm() {
   const { register, handleSubmit, setValue, formState: { errors }, } = useForm()
 
@@ -26,19 +23,17 @@ export default function CourseBuilderForm() {
 
   // handle form submission
   const onSubmit = async (data) => {
-    // console.log("sent data ", data)
     setLoading(true)
 
     let result
 
     if (editSectionName) {
       result = await updateSection({ sectionName: data.sectionName, sectionId: editSectionName, courseId: course._id, }, token)
-      // console.log("edit = ", result)
     } else {
       result = await createSection(
         { sectionName: data.sectionName, courseId: course._id, }, token)
     }
-    // console.log("section result = ", result)
+    
     if (result) {
       dispatch(setCourse(result))
       setEditSectionName(null)
@@ -146,11 +141,7 @@ export default function CourseBuilderForm() {
         </button>
 
         {/* Next button */}
-<<<<<<< HEAD
         <IconBtn disabled={loading} text="Next" onClick={goToNext}>
-=======
-        <IconBtn disabled={loading} text="Next" onclick={goToNext}>
->>>>>>> main
           <MdNavigateNext />
         </IconBtn>
       </div>

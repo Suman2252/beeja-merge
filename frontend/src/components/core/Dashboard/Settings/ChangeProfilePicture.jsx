@@ -6,8 +6,6 @@ import { updateUserProfileImage } from "../../../../services/operations/Settings
 import IconBtn from "../../../common/IconBtn"
 import Img from './../../../common/Img';
 
-
-
 export default function ChangeProfilePicture() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
@@ -25,7 +23,6 @@ export default function ChangeProfilePicture() {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0]
-    // console.log(file)
     if (file) {
       setProfileImage(file)
       previewFile(file)
@@ -42,7 +39,6 @@ export default function ChangeProfilePicture() {
 
   const handleFileUpload = () => {
     try {
-      // console.log("uploading...")
       setLoading(true)
       const formData = new FormData()
       formData.append("profileImage", profileImage)
@@ -60,7 +56,6 @@ export default function ChangeProfilePicture() {
       previewFile(profileImage)
     }
   }, [profileImage])
-
 
   return (
     <>
@@ -93,11 +88,7 @@ export default function ChangeProfilePicture() {
 
               <IconBtn
                 text={loading ? "Uploading..." : "Upload"}
-<<<<<<< HEAD
                 onClick={handleFileUpload}
-=======
-                onclick={handleFileUpload}
->>>>>>> main
               >
                 {!loading && (
                   <FiUpload className="text-lg" />

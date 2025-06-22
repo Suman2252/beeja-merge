@@ -64,14 +64,8 @@ const TeamSlider = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Get number of cards to show based on screen size
-  const getCardsToShow = () => {
-    if (windowWidth < 640) return 1; // Mobile
-    if (windowWidth < 1024) return 2; // Tablet
-    return 3; // Desktop
-  };
-
-  const cardsToShow = getCardsToShow();
+  // Always show one card at a time
+  const cardsToShow = 1;
 
   // Auto-play functionality
   useEffect(() => {
@@ -80,7 +74,6 @@ const TeamSlider = () => {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => {
           const nextIndex = prevIndex + 1;
-          // Seamless loop - when we reach the end, continue to the beginning
           return nextIndex >= teamMembers.length ? 0 : nextIndex;
         });
       }, 3000);
@@ -93,7 +86,6 @@ const TeamSlider = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? teamMembers.length - 1 : prevIndex - 1
     );
-    // Resume autoplay after 5 seconds
     setTimeout(() => setIsAutoplay(true), 5000);
   };
 
@@ -102,24 +94,17 @@ const TeamSlider = () => {
     setCurrentIndex((prevIndex) => 
       (prevIndex + 1) % teamMembers.length
     );
-    // Resume autoplay after 5 seconds
     setTimeout(() => setIsAutoplay(true), 5000);
   };
 
   const handleDotClick = (index) => {
     setIsAutoplay(false);
     setCurrentIndex(index);
-    // Resume autoplay after 5 seconds
     setTimeout(() => setIsAutoplay(true), 5000);
   };
 
   const getVisibleCards = () => {
-    const cards = [];
-    for (let i = 0; i < cardsToShow; i++) {
-      const index = (currentIndex + i) % teamMembers.length;
-      cards.push({ ...teamMembers[index], displayIndex: i });
-    }
-    return cards;
+    return [{ ...teamMembers[currentIndex], displayIndex: 0 }];
   };
 
   return (
@@ -145,32 +130,28 @@ const TeamSlider = () => {
                 type: "spring",
                 stiffness: 100
               }}
-<<<<<<< HEAD
-              className={`${styles.teamCard} bg-richblack-800 rounded-xl p-4 sm:p-6 flex flex-col items-center border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-50/10`}
-=======
               className={`${styles.teamCard} theme-card rounded-xl p-4 sm:p-6 flex flex-col items-center border border-richblack-700 hover:border-yellow-50 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-50/10`}
->>>>>>> main
               style={{
-                flex: cardsToShow === 1 ? '0 0 85%' : cardsToShow === 2 ? '0 0 calc(50% - 12px)' : '0 0 calc(33.333% - 16px)'
+                width: '300px',
+                height: '300px',
+                flex: '0 0 300px'
               }}
             >
-              <div className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-3 sm:mb-4 border-2 sm:border-4 border-yellow-50 ${styles.imageContainer}`}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className={`w-full h-full object-cover ${styles.memberImage}`}
-                  loading="lazy"
-                />
+              <div className="flex flex-col items-center justify-between h-full w-full">
+                <div className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-yellow-50 ${styles.imageContainer}`}>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className={`w-full h-full object-cover ${styles.memberImage}`}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="text-center space-y-2">
+                  <h3 className="text-lg sm:text-xl font-semibold theme-footer-text">{member.name}</h3>
+                  <p className="text-sm theme-footer-text font-medium">{member.title}</p>
+                  <p className="theme-footer-text text-sm leading-relaxed line-clamp-3">{member.description}</p>
+                </div>
               </div>
-<<<<<<< HEAD
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold text-yellow-50 mb-1 sm:mb-2 text-center">{member.name}</h3>
-              <p className="text-xs sm:text-sm text-richblack-300 mb-2 sm:mb-4 text-center font-medium">{member.title}</p>
-              <p className="text-richblack-100 text-center text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">{member.description}</p>
-=======
-              <h3 className="text-base sm:text-lg md:text-xl font-semibold theme-footer-text mb-1 sm:mb-2 text-center">{member.name}</h3>
-              <p className="text-xs sm:text-sm theme-footer-text mb-2 sm:mb-4 text-center font-medium">{member.title}</p>
-              <p className="theme-footer-text text-center text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">{member.description}</p>
->>>>>>> main
             </motion.div>
           ))}
         </div>
@@ -178,22 +159,14 @@ const TeamSlider = () => {
         {/* Navigation Buttons */}
         <button
           onClick={handlePrev}
-<<<<<<< HEAD
-          className={`${styles.navButton} absolute left-0 top-1/2 -translate-y-1/2 bg-richblack-900 p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
-=======
           className={`${styles.navButton} absolute left-0 top-1/2 -translate-y-1/2 theme-card p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
->>>>>>> main
           aria-label="Previous slide"
         >
           <FiChevronLeft size={20} className="md:text-2xl" />
         </button>
         <button
           onClick={handleNext}
-<<<<<<< HEAD
-          className={`${styles.navButton} absolute right-0 top-1/2 -translate-y-1/2 bg-richblack-900 p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
-=======
           className={`${styles.navButton} absolute right-0 top-1/2 -translate-y-1/2 theme-card p-2 md:p-3 rounded-full text-yellow-50 border border-richblack-700 hover:border-yellow-50 shadow-lg z-10`}
->>>>>>> main
           aria-label="Next slide"
         >
           <FiChevronRight size={20} className="md:text-2xl" />
@@ -212,13 +185,6 @@ const TeamSlider = () => {
             />
           ))}
         </div>
-
-        {/* Progress indicator */}
-        {/* <div className="mt-4 text-center">
-          <span className="text-richblack-300 text-sm">
-            {currentIndex + 1} / {teamMembers.length}
-          </span>
-        </div> */}
       </div>
     </motion.div>
   );

@@ -6,14 +6,7 @@ import { useSelector } from "react-redux"
 import "video-react/dist/video-react.css"
 import { Player } from "video-react"
 
-
-
-<<<<<<< HEAD
 export default function Upload({ name, label, register, setValue, errors, video = false, viewData = null, editData = null, setImageFile = null }) {
-=======
-export default function Upload({ name, label, register, setValue, errors, video = false, viewData = null, editData = null, }) {
->>>>>>> main
-  // const { course } = useSelector((state) => state.course)
   const [selectedFile, setSelectedFile] = useState(null)
   const [previewSource, setPreviewSource] = useState(viewData ? viewData : editData ? editData : "")
   const inputRef = useRef(null)
@@ -34,7 +27,6 @@ export default function Upload({ name, label, register, setValue, errors, video 
   })
 
   const previewFile = (file) => {
-    // console.log(file)
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = () => {
@@ -46,9 +38,7 @@ export default function Upload({ name, label, register, setValue, errors, video 
     register(name, { required: true })
   }, [register])
 
-
   useEffect(() => {
-<<<<<<< HEAD
     if (selectedFile) {
       setValue(name, selectedFile)
       if (setImageFile) {
@@ -61,10 +51,6 @@ export default function Upload({ name, label, register, setValue, errors, video 
       })
     }
   }, [selectedFile, setValue, name, setImageFile])
-=======
-    setValue(name, selectedFile)
-  }, [selectedFile, setValue])
->>>>>>> main
 
   return (
     <div className="flex flex-col space-y-2">

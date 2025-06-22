@@ -46,30 +46,17 @@ const contactDetails = [
 
 const ContactDetails = () => {
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col gap-6 rounded-xl bg-richblack-800 p-4 lg:p-6">
-=======
     <div className="flex flex-col gap-6 rounded-xl theme-location-bg p-4 lg:p-6 theme-container-shadow">
->>>>>>> main
       {contactDetails.map((ele, i) => {
         let Icon = Icon1[ele.icon] || Icon2[ele.icon] || Icon3[ele.icon]
         return (
           <div
-<<<<<<< HEAD
-            className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200"
-            key={i}
-          >
-            <div className="flex flex-row items-center gap-3">
-              <Icon size={25} />
-              <h1 className="text-lg font-semibold text-richblack-5">
-=======
             className="flex flex-col gap-[2px] p-3 text-sm theme-location-text"
             key={i}
           >
             <div className="flex flex-row items-center gap-3">
               <Icon size={25} className="theme-location-text" />
               <h1 className="text-lg font-semibold theme-location-text">
->>>>>>> main
                 {ele?.heading}
               </h1>
             </div>
@@ -79,23 +66,14 @@ const ContactDetails = () => {
                 {ele.description.map((item, idx) => (
                   <div key={idx} className="flex flex-col gap-2">
                     <div>
-<<<<<<< HEAD
-                      <p className="font-medium">{item.label}</p>
-                      <p className="font-semibold">{item.text}</p>
-=======
                       <p className="font-medium theme-location-text">{item.label}</p>
                       <p className="font-semibold theme-location-text">{item.text}</p>
->>>>>>> main
                       {item.link && (
                         <a 
                           href={item.url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-<<<<<<< HEAD
-                          className="text-yellow-100 underline text-sm"
-=======
-                          className="text-yellow-100 underline text-sm hover:text-yellow-200 transition-colors"
->>>>>>> main
+                          className="theme-button-text underline text-sm hover:opacity-80 transition-colors"
                         >
                           {item.link}
                         </a>
@@ -120,29 +98,17 @@ const ContactDetails = () => {
               </div>
             ) : (
               <>
-<<<<<<< HEAD
-                <p className="font-medium">{ele?.description}</p>
-                {Array.isArray(ele.details) ? (
-                  <div className="flex flex-col">
-                    {ele.details.map((detail, idx) => (
-                      <p key={idx} className="font-semibold">
-=======
                 <p className="font-medium theme-location-text">{ele?.description}</p>
                 {Array.isArray(ele.details) ? (
                   <div className="flex flex-col">
                     {ele.details.map((detail, idx) => (
                       <p key={idx} className="font-semibold theme-location-text">
->>>>>>> main
                         {detail}
                       </p>
                     ))}
                   </div>
                 ) : (
-<<<<<<< HEAD
-                  <p className="font-semibold">{ele.details}</p>
-=======
                   <p className="font-semibold theme-location-text">{ele.details}</p>
->>>>>>> main
                 )}
               </>
             )}
@@ -153,8 +119,4 @@ const ContactDetails = () => {
   )
 }
 
-<<<<<<< HEAD
 export default ContactDetails
-=======
-export default ContactDetails
->>>>>>> main

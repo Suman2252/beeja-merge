@@ -2,7 +2,6 @@ import React from "react"
 import ImprovedFooter from "../components/common/ImprovedFooter"
 import ContactDetails from "../components/core/ContactPage/ContactDetails"
 import ContactForm from "../components/core/ContactPage/ContactForm"
-import ReviewSlider from './../components/common/ReviewSlider';
 import { Interactive3DCube } from "../components/Interactive3DCube";
 import styles from "./Contact.module.css"
 
@@ -26,16 +25,11 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Reviews from Other Learner */}
-      <div className="my-20 px-5" style={{ position: 'relative', zIndex: 2, background: 'var(--background-primary)' }}>
-        <h1 className="text-center text-4xl font-semibold mt-8 theme-heading">
-          Reviews from other learners
-        </h1>
-        <ReviewSlider />
-      </div>
+      {/* Spacing to replace removed reviews section */}
+      <div className="my-20"></div>
 
       {/* Footer */}
-      <footer>
+      <footer className="contact-page-footer">
         <ImprovedFooter />
       </footer>
     </div>

@@ -94,7 +94,7 @@ const Home = () => {
             {/* Main Content above background */}
             <div className="relative z-10">
                 {/* Section 1 - Hero */}
-                <div id='home-welcome' className='relative h-[600px] md:h-[400px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center text-white'>
+                <div id='home-welcome' className='relative h-[600px] md:h-[400px] justify-center mx-auto flex flex-col w-11/12 max-w-maxContent items-center theme-text-primary'>
                     <motion.div
                         variants={fadeIn('left', 0.1)}
                         initial='hidden'
@@ -233,7 +233,7 @@ const Home = () => {
                                 link: "/signup",
                                 active: false
                             }}
-                            codeblock={`<<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><ahref="/">Header</a>\n</h1>\n<nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a>\n</nav>`}
+                            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n</head>\n<body>\n<h1><a href="/">Header</a>\n</h1>\n<nav><a href="one/">One</a><a href="two/">Two</a><a href="three/">Three</a>\n</nav>`}
                             codeColor={"text-yellow-25"}
                             backgroundGradient={"code-block1-grad"}
                         />
@@ -321,7 +321,7 @@ const Home = () => {
                 </div>
 
                 {/* Section 2 - Skills */}
-                <div className='bg-pure-greys-5 text-richblack-700 skills-section'>
+                <div className='skills-section'>
                     <div className='homepage_bg h-[310px]'>
                         <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
                             <div className='h-[150px]'></div>

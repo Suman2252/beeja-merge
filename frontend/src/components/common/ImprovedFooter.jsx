@@ -47,12 +47,6 @@ const ImprovedFooter = () => {
 
   return (
     <footer className={`${styles.footerContainer} relative theme-footer-bg mx-4 sm:mx-6 lg:mx-7 rounded-3xl mb-6 lg:mb-10 overflow-hidden`}>
-      {/* Background Pattern */}
-      <div className={styles.backgroundPattern}>
-        <div className={`${styles.floatingElement} ${styles.animateDelay1}`}></div>
-        <div className={`${styles.floatingElement} ${styles.animateDelay2}`}></div>
-        <div className={`${styles.floatingElement} ${styles.animateDelay3}`}></div>
-      </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
@@ -178,7 +172,7 @@ const ImprovedFooter = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-gradient-to-r from-yellow-50 to-yellow-25 text-richblack-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-yellow-50/25 transition-all duration-300"
+                  className="px-6 py-3 theme-button-primary font-semibold rounded-lg hover:shadow-lg hover:shadow-[#B784F3]/25 dark:hover:shadow-[#12D8FA]/25 transition-all duration-300"
                 >
                   Subscribe
                 </motion.button>

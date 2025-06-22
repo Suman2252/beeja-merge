@@ -7,8 +7,6 @@ import { getInstructorData } from "../../../services/operations/profileAPI"
 import InstructorChart from "./InstructorDashboard/InstructorChart"
 import Img from './../../common/Img';
 
-
-
 export default function Instructor() {
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
@@ -16,7 +14,6 @@ export default function Instructor() {
   const [loading, setLoading] = useState(false)
   const [instructorData, setInstructorData] = useState(null)
   const [courses, setCourses] = useState([])
-
 
   // get Instructor Data
   useEffect(() => {
@@ -36,7 +33,6 @@ export default function Instructor() {
   const totalAmount = instructorData?.reduce((acc, curr) => acc + curr.totalAmountGenerated, 0)
 
   const totalStudents = instructorData?.reduce((acc, curr) => acc + curr.totalStudentsEnrolled, 0)
-
 
   // skeleton loading
   const skItem = () => {
@@ -79,7 +75,6 @@ export default function Instructor() {
     )
   }
 
-
   return (
     <div>
       <div className="space-y-2">
@@ -90,7 +85,6 @@ export default function Instructor() {
           Let's start something new
         </p>
       </div>
-
 
       {loading ? (
         <div>
@@ -184,18 +178,12 @@ export default function Instructor() {
             <p className="text-center text-2xl font-bold text-richblack-5">
               You have not created any courses yet
             </p>
-<<<<<<< HEAD
-            <p className="mt-1 text-center text-lg text-richblack-300">
-              Contact admin to create a new course
-            </p>
-=======
 
             <Link to="/dashboard/add-course">
               <p className="mt-1 text-center text-lg font-semibold text-yellow-50">
                 Create a course
               </p>
             </Link>
->>>>>>> main
           </div>
         )}
     </div>

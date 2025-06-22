@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "./context/ThemeContext";
 import "./styles/theme.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -73,7 +72,6 @@ function App() {
   }, [showArrow]);
 
   return (
-    <ThemeProvider>
       <div className="w-screen min-h-screen flex flex-col font-inter" style={{ backgroundColor: 'var(--background-primary)', color: 'var(--text-primary)' }}>
         <Navbar />
 
@@ -87,12 +85,13 @@ function App() {
           <HiArrowNarrowUp />
         </button>
 
-        <Routes>
+        <div className="pt-14">
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services/institute" element={<InstituteService />} />
-          <Route path="/services/student" element={<StudentService />} />
+          <Route path="/institute-service" element={<InstituteService />} />
+          <Route path="/student-service" element={<StudentService />} />
           <Route path="catalog/:catalogName" element={<Catalog />} />
           <Route path="courses/:courseId" element={<CourseDetails />} />
 
@@ -192,9 +191,9 @@ function App() {
 
           {/* Page Not Found (404 Page) */}
           <Route path="*" element={<PageNotFound />} />
-        </Routes>
+          </Routes>
+        </div>
       </div>
-    </ThemeProvider>
   );
 }
 

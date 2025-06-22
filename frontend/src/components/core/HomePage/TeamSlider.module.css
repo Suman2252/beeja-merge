@@ -3,6 +3,9 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Hide scrollbar but allow scrolling */
@@ -20,6 +23,12 @@
   transition: all 0.3s ease;
   transform-origin: center;
   backface-visibility: hidden;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .teamCard:hover {
@@ -94,35 +103,36 @@
   overflow: hidden;
 }
 
-/* Mobile specific optimizations */
+/* Card container */
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Navigation buttons positioning */
+.navButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+/* Responsive adjustments */
 @media (max-width: 640px) {
   .teamCard {
-    min-height: auto;
-    max-height: 240px;
-  }
-  
-  .cardContainer {
-    gap: 0.5rem;
-    padding: 0 0.5rem;
-  }
-  
-  .navButton {
-    width: 36px;
-    height: 36px;
-    padding: 8px;
+    width: 280px !important;
+    height: 280px !important;
   }
 }
 
-/* Tablet optimizations */
-@media (min-width: 641px) and (max-width: 1023px) {
+@media (min-width: 641px) {
   .teamCard {
-    min-height: 320px;
-  }
-}
-
-/* Desktop optimizations */
-@media (min-width: 1024px) {
-  .teamCard {
-    min-height: 360px;
+    width: 300px !important;
+    height: 300px !important;
   }
 }
